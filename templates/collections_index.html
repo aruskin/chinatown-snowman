@@ -4,11 +4,20 @@
 {{ define "content" }}
 
 <h1>{{ (index . 0).title}}</h1>
-<ul>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
     {{ range . }}
-    <li><a href="./collections/{{ .qid }}.html">{{ .collectionLabel }}</a></li>
+    <tr>
+        <td><a href="./collections/{{ .qid }}.html">{{ .collectionLabel }}</a></td>
+        <td>{{ .collectionTypeLabel }}</td>
+        <td>{{ .description }}</td>
+    </tr>
     {{ end }}
-</ul>
+</table>
 
 <a href="../">Home</a>
 
