@@ -1,0 +1,4 @@
+sparql_client:
+  endpoint: "http://ec2-34-227-69-60.compute-1.amazonaws.com:8834/proxy/wdqs/bigdata/namespace/wdq/sparql"
+  http_headers: 
+    User-Agent: "project-boilerplate Snowman (https://github.com/glaciers-in-archives/snowman)"

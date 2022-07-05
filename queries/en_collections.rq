@@ -1,0 +1,20 @@
+SELECT ?title ?qid ?collectionLabel ?collectionTypeLabel ?description ?wdItemPropLabel ?wdItem ?describedAtURLPropLabel ?describedAtURL ?creatorPropLabel ?creatorLabel ?creatorQid ?maintainerPropLabel ?maintainerLabel ?maintainerQid WHERE {
+   ?collection wdt:P7 wd:Q85.
+   BIND("Chinatown Collections" as ?title).
+   BIND(REPLACE(STR(?collection), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
+   OPTIONAL{?collection wdt:P50 ?collectionType.}
+   OPTIONAL{?collection wdt:P37 ?description.}
+   OPTIONAL{?collection wdt:P28 ?creator.
+    BIND(REPLACE(STR(?creator), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?creatorQid).
+   }
+   OPTIONAL{?collection wdt:P11 ?maintainer.
+    BIND(REPLACE(STR(?maintainer), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?maintainerQid)
+   }
+   OPTIONAL{?collection wdt:P33 ?wdItem.}
+   OPTIONAL{?collection wdt:P17 ?describedAtURL.}
+   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+   ?wdItemProp wikibase:directClaim wdt:P33.
+   ?describedAtURLProp wikibase:directClaim wdt:P17.
+   ?creatorProp wikibase:directClaim wdt:P28.
+   ?maintainerProp wikibase:directClaim wdt:P11.
+}

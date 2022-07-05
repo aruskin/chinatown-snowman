@@ -1,0 +1,21 @@
+{{ template "base" . }}
+{{ define "title" }}{{ .collectionLabel}}{{ end }}
+
+{{ define "content" }}
+
+<h1>{{ .collectionLabel }}</h1>
+<h2>{{ .collectionTypeLabel }}</h2>
+<p>{{ .description }}</p>
+
+<ul>
+	<li>{{ .creatorPropLabel }}: {{ .creatorLabel }}</li>
+	<li>{{ .maintainerPropLabel }}: {{ .maintainerLabel }}</li>
+	<li>{{ .wdItemPropLabel }}: <a href='https://www.wikidata.org/wiki/{{ .wdItem }}'>{{ .wdItem }}</a></li>
+	<li>{{ .describedAtURLPropLabel }}: <a href='{{ .describedAtURL}}'>{{ .describedAtURL}}</a></li>
+</ul>
+
+<p><a href='../collections.html'>Collection Index</a> | <a href='../..'>Home</a></p>
+
+<p><a href='../../en/collections/{{ .qid }}.html'>en</a> | <a href='../../zh/collections/{{ .qid }}.html'>zh</a></p>
+
+{{ end }}

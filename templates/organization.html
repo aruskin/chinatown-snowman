@@ -1,0 +1,19 @@
+{{ template "base" . }}
+{{ define "title" }}{{ .organizationLabel }}{{ end }}
+
+{{ define "content" }}
+
+<h1>{{ .organizationLabel }}</h1>
+<p>{{ .description}}</p>
+
+<ul>
+	<li>{{ .orgTypePropLabel }}: {{ .orgTypeLabel}}</li>
+	<li>{{ .wdItemPropLabel }}: <a href='https://www.wikidata.org/wiki/{{ .wdItem }}'>{{ .wdItem }}</a></li>
+	<li>{{ .officialWebsitePropLabel }}: <a href='{{ .officialWebsite}}'>{{ .officialWebsite}}</a></li>
+</ul>
+
+<p><a href='../organizations.html'>Organization Index</a> | <a href='../..'>Home</a></p>
+
+<p><a href='../../en/organizations/{{ .qid }}.html'>en</a> | <a href='../../zh/organizations/{{ .qid }}.html'>zh</a></p>
+
+{{ end }}

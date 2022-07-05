@@ -1,0 +1,16 @@
+{{ template "base" . }}
+{{ define "title" }}{{ (index . 0).title}}{{ end }}
+
+{{ define "content" }}
+<h1>{{ (index . 0).title}}</h1>
+<ul>
+    {{ range . }}
+    <li><a href="./organizations/{{ .qid }}.html">{{ .organizationLabel }}</a></li>
+    {{ end }}
+</ul>
+
+<a href="../">Home</a>
+
+<p><a href='../en/organizations.html'>en</a> | <a href='../zh/organizations.html'>zh</a></p>
+
+{{ end }}
