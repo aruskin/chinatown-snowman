@@ -1,4 +1,4 @@
-SELECT ?title ?qid ?collectionLabel ?collectionTypeLabel ?description ?wdItemPropLabel ?wdItem ?describedAtURLPropLabel ?describedAtURL ?creatorPropLabel ?creatorLabel ?creatorQid ?maintainerPropLabel ?maintainerLabel ?maintainerQid WHERE {
+SELECT DISTINCT ?title ?qid ?collectionLabel ?collectionTypeLabel ?description ?wdItemPropLabel ?wdItem ?describedAtURLPropLabel ?describedAtURL ?creatorPropLabel ?creatorLabel ?creatorQid ?maintainerPropLabel ?maintainerLabel ?maintainerQid WHERE {
    ?collection wdt:P7 wd:Q85.
    BIND("Chinatown Collections" as ?title).
    BIND(REPLACE(STR(?collection), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
@@ -12,9 +12,18 @@ SELECT ?title ?qid ?collectionLabel ?collectionTypeLabel ?description ?wdItemPro
    }
    OPTIONAL{?collection wdt:P33 ?wdItem.}
    OPTIONAL{?collection wdt:P17 ?describedAtURL.}
-   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". 
+      ?creator rdfs:label ?creatorLabel.
+      ?maintainer rdfs:label ?maintainerLabel.
+      ?collection rdfs:label ?collectionLabel.
+      ?collectionType rdfs:label ?collectionTypeLabel.
+      ?wdItemProp rdfs:label ?wdItemPropLabel.
+      ?describedAtURLProp rdfs:label ?describedAtURLPropLabel.
+      ?creatorProp rdfs:label ?creatorPropLabel.
+      ?maintainerProp rdfs:label ?maintainerPropLabel.
+   }
    ?wdItemProp wikibase:directClaim wdt:P33.
    ?describedAtURLProp wikibase:directClaim wdt:P17.
    ?creatorProp wikibase:directClaim wdt:P28.
    ?maintainerProp wikibase:directClaim wdt:P11.
-}
+} ORDER BY (?collectionLabel)
