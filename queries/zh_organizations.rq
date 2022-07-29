@@ -1,4 +1,4 @@
-SELECT ?title ?qid ?organizationLabel ?description ?wdItemPropLabel ?wdItem ?officialWebsitePropLabel ?officialWebsite ?orgTypePropLabel ?orgTypeLabel WHERE {
+SELECT ?title ?qid ?organizationLabel ?description ?wdItemPropLabel ?wdItem ?officialWebsitePropLabel ?officialWebsite ?orgTypePropLabel ?orgTypeLabel ?streetAddress WHERE {
    ?organization wdt:P7 wd:Q59.
    BIND("[Organizations in Chinese]" as ?title).
    BIND(REPLACE(STR(?organization), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
@@ -6,8 +6,9 @@ SELECT ?title ?qid ?organizationLabel ?description ?wdItemPropLabel ?wdItem ?off
    OPTIONAL{?organization wdt:P51 ?orgType.}
    OPTIONAL{?organization wdt:P33 ?wdItem.}
    OPTIONAL{?organization wdt:P22 ?officialWebsite.}
+   OPTIONAL{?organization wdt:P29 ?streetAddress}
    SERVICE wikibase:label { bd:serviceParam wikibase:language "zh". }
    ?wdItemProp wikibase:directClaim wdt:P33.
    ?officialWebsiteProp wikibase:directClaim wdt:P22.
    ?orgTypeProp wikibase:directClaim wdt:P51.
-}
+} ORDER BY (?organizationLabel)

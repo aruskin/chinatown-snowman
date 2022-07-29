@@ -3,11 +3,20 @@
 
 {{ define "content" }}
 <h1>{{ (index . 0).title}}</h1>
-<ul>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Street address</th>
+    </tr>
     {{ range . }}
-    <li><a href="./organizations/{{ .qid }}.html">{{ .organizationLabel }}</a></li>
+    <tr>
+        <td><a href="./organizations/{{ .qid }}.html">{{ .organizationLabel }}</a></td>
+        <td>{{ .orgTypeLabel }}</td>
+        <td>{{ .streetAddress }}</td>
+    </tr>
     {{ end }}
-</ul>
+</table>
 
 <a href="../">Home</a>
 
