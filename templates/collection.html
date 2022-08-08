@@ -4,15 +4,20 @@
 {{ define "content" }}
 
 <h1>{{ .collectionLabel }}</h1>
-<h2>{{ .collectionTypeLabel }}</h2>
-<p>{{ .description }}</p>
-
-<ul>
-	<li>{{ .creatorPropLabel }}: {{ .creatorLabel }}</li>
-	<li>{{ .maintainerPropLabel }}: {{ .maintainerLabel }}</li>
-	<li>{{ .wdItemPropLabel }}: <a href='https://www.wikidata.org/wiki/{{ .wdItem }}'>{{ .wdItem }}</a></li>
-	<li>{{ .describedAtURLPropLabel }}: <a href='{{ .describedAtURL}}'>{{ .describedAtURL}}</a></li>
-</ul>
+<br>
+<p><span class="cc-field-name">{{ .descriptionPropLabel }}: </span>{{ .description }}</p>
+<br>
+<p><span class="cc-field-name">{{ .materialsStartPropLabel }}: </span>{{ .materialsStartYear }}</p>
+<p><span class="cc-field-name">{{ .materialsEndPropLabel }}: </span>{{ .materialsEndYear }}</p>
+<p><span class="cc-field-name">{{ .creatorPropLabel }}: </span>{{ .creators }}</p>
+<p><span class="cc-field-name">{{ .collectionTypePropLabel }}: </span>{{ .collectionTypeLabel }}</p>
+<p><span class="cc-field-name">{{ .maintainerPropLabel }}: </span>{{ .maintainers }}</p>
+<p><span class="cc-field-name">{{ .generalRecordsPropLabel }}: </span>{{ .generalRecordsTypes }}</p>
+<p><span class="cc-field-name">{{ .specificRecordsPropLabel }}: </span>{{ .specificRecordsTypes }}</p>
+<p><span class="cc-field-name">{{ .accessStatusPropLabel }}: </span>{{ .accessStatusLabel }}</p>
+<p><span class="cc-field-name">{{ .digitizationStatusPropLabel }}: </span>{{ .digitizationStatusLabel }}</p>
+<p><span class="cc-field-name">{{ .subjectPropLabel }}: </span>{{ .subjects }}</p>
+<p><span class="cc-field-name">{{ .languagePropLabel }}: </span>{{ .languages }}</p>
 
 <p><a href='../collections.html'>Collection Index</a> | <a href='../..'>Home</a></p>
 

@@ -1,29 +1,86 @@
-SELECT DISTINCT ?title ?qid ?collectionLabel ?collectionTypeLabel ?description ?wdItemPropLabel ?wdItem ?describedAtURLPropLabel ?describedAtURL ?creatorPropLabel ?creatorLabel ?creatorQid ?maintainerPropLabel ?maintainerLabel ?maintainerQid WHERE {
+SELECT DISTINCT ?title ?qid ?collectionLabel ?collectionTypePropLabel ?collectionTypeLabel ?description ?descriptionPropLabel ?wdItemPropLabel ?wdItem ?describedAtURLPropLabel 
+?describedAtURL ?creatorPropLabel ?creators ?maintainerPropLabel ?maintainers
+?materialsStartPropLabel ?materialsEndPropLabel (YEAR(?materialsStart) as ?materialsStartYear) (YEAR(?materialsEnd) as ?materialsEndYear)
+?digitizationStatusPropLabel ?digitizationStatusLabel ?accessStatusPropLabel ?accessStatusLabel 
+?generalRecordsTypes ?generalRecordsPropLabel ?specificRecordsTypes ?specificRecordsPropLabel
+?subjects ?subjectPropLabel ?languages ?languagePropLabel
+WHERE {
    ?collection wdt:P7 wd:Q85.
    BIND("Chinatown Collections" as ?title).
    BIND(REPLACE(STR(?collection), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
    OPTIONAL{?collection wdt:P50 ?collectionType.}
    OPTIONAL{?collection wdt:P37 ?description.}
-   OPTIONAL{?collection wdt:P28 ?creator.
-    BIND(REPLACE(STR(?creator), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?creatorQid).
-   }
-   OPTIONAL{?collection wdt:P11 ?maintainer.
-    BIND(REPLACE(STR(?maintainer), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?maintainerQid)
-   }
    OPTIONAL{?collection wdt:P33 ?wdItem.}
    OPTIONAL{?collection wdt:P17 ?describedAtURL.}
+   OPTIONAL{?collection wdt:P30 ?materialsStart.}
+   OPTIONAL{?collection wdt:P31 ?materialsEnd.}
+   OPTIONAL{?collection wdt:P40 ?digitizationStatus.}
+   OPTIONAL{?collection wdt:P32 ?accessStatus.}
    SERVICE wikibase:label { bd:serviceParam wikibase:language "en". 
-      ?creator rdfs:label ?creatorLabel.
-      ?maintainer rdfs:label ?maintainerLabel.
       ?collection rdfs:label ?collectionLabel.
       ?collectionType rdfs:label ?collectionTypeLabel.
       ?wdItemProp rdfs:label ?wdItemPropLabel.
       ?describedAtURLProp rdfs:label ?describedAtURLPropLabel.
       ?creatorProp rdfs:label ?creatorPropLabel.
       ?maintainerProp rdfs:label ?maintainerPropLabel.
+      ?materialsStartProp rdfs:label ?materialsStartPropLabel.
+      ?materialsEndProp rdfs:label ?materialsEndPropLabel.
+      ?descriptionProp rdfs:label ?descriptionPropLabel.
+      ?collectionTypeProp rdfs:label ?collectionTypePropLabel.
+      ?digitizationStatus rdfs:label ?digitizationStatusLabel.
+      ?digitizationStatusProp rdfs:label ?digitizationStatusPropLabel.
+      ?accessStatus rdfs:label ?accessStatusLabel.
+      ?accessStatusProp rdfs:label ?accessStatusPropLabel.
+      ?generalRecordsProp rdfs:label ?generalRecordsPropLabel.
+      ?specificRecordsProp rdfs:label ?specificRecordsPropLabel.
+      ?subjectProp rdfs:label ?subjectPropLabel.
+      ?languageProp rdfs:label ?languagePropLabel.
    }
    ?wdItemProp wikibase:directClaim wdt:P33.
    ?describedAtURLProp wikibase:directClaim wdt:P17.
    ?creatorProp wikibase:directClaim wdt:P28.
    ?maintainerProp wikibase:directClaim wdt:P11.
+   ?materialsStartProp wikibase:directClaim wdt:P30.
+   ?materialsEndProp wikibase:directClaim wdt:P31.
+   ?descriptionProp wikibase:directClaim wdt:P37.
+   ?collectionTypeProp wikibase:directClaim wdt:P50.
+   ?digitizationStatusProp wikibase:directClaim wdt:P40.
+   ?accessStatusProp wikibase:directClaim wdt:P32.
+   ?generalRecordsProp wikibase:directClaim wdt:P38.
+   ?specificRecordsProp wikibase:directClaim wdt:P48.
+   ?subjectProp wikibase:directClaim wdt:P23.
+   ?languageProp wikibase:directClaim wdt:P13.
+   FILTER(LANG(?description) = "en").
+   {
+     SELECT ?innerCollection 
+            (group_concat(distinct ?generalRecordsLabel; separator="; ") as ?generalRecordsTypes)
+            (group_concat(distinct ?specificRecordsLabel; separator="; ") as ?specificRecordsTypes)
+            (group_concat(distinct ?subjectLabel; separator="; ") as ?subjects)
+            (group_concat(distinct ?languageLabel; separator="; ") as ?languages)
+            (group_concat(distinct ?creatorLabel; separator="; ") as ?creators)
+            (group_concat(distinct ?maintainerLabel; separator="; ") as ?maintainers)
+     WHERE {
+       ?innerCollection wdt:P7 wd:Q85.
+       OPTIONAL{?innerCollection wdt:P38 ?generalRecords}
+       OPTIONAL{?innerCollection wdt:P48 ?specificRecords}
+       OPTIONAL{?innerCollection wdt:P23 ?subject}
+       OPTIONAL{?innerCollection wdt:P13 ?language}
+       OPTIONAL{?innerCollection wdt:P28 ?creator.
+         BIND(REPLACE(STR(?creator), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?creatorQid).
+       }
+       OPTIONAL{?innerCollection wdt:P11 ?maintainer.
+        BIND(REPLACE(STR(?maintainer), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?maintainerQid)
+       }
+       SERVICE wikibase:label { bd:serviceParam wikibase:language "en". 
+          ?generalRecords rdfs:label ?generalRecordsLabel.
+          ?specificRecords rdfs:label ?specificRecordsLabel. 
+          ?subject rdfs:label ?subjectLabel.
+          ?language rdfs:label ?languageLabel.
+          ?creator rdfs:label ?creatorLabel.
+          ?maintainer rdfs:label ?maintainerLabel.               
+       }
+      }
+     GROUP BY ?innerCollection
+    }
+  FILTER(?innerCollection = ?collection)
 } ORDER BY (?collectionLabel)
