@@ -1,4 +1,8 @@
-SELECT ?title ?qid ?organizationLabel ?description ?wdItemPropLabel ?wdItem ?officialWebsitePropLabel ?officialWebsite ?orgTypePropLabel ?orgTypeLabel ?streetAddress WHERE {
+SELECT ?title ?qid ?organizationLabel ?description ?wdItemPropLabel ?wdItem 
+?officialWebsitePropLabel ?officialWebsite ?orgTypePropLabel ?orgTypeLabel 
+?streetAddress ?streetAddressPropLabel (year(?inception) as ?inceptionYear) ?inceptionPropLabel  
+?phoneNumber ?phoneNumberPropLabel ?emailAddress ?emailAddressPropLabel
+WHERE {
    ?organization wdt:P7 wd:Q59.
    BIND("[Organizations in Chinese]" as ?title).
    BIND(REPLACE(STR(?organization), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
@@ -6,9 +10,16 @@ SELECT ?title ?qid ?organizationLabel ?description ?wdItemPropLabel ?wdItem ?off
    OPTIONAL{?organization wdt:P51 ?orgType.}
    OPTIONAL{?organization wdt:P33 ?wdItem.}
    OPTIONAL{?organization wdt:P22 ?officialWebsite.}
-   OPTIONAL{?organization wdt:P29 ?streetAddress}
-   SERVICE wikibase:label { bd:serviceParam wikibase:language "zh". }
+   OPTIONAL{?organization wdt:P29 ?streetAddress.}
+   OPTIONAL{?organization wdt:P19 ?inception.} 
+   OPTIONAL{?organization wdt:P25 ?phoneNumber.}
+   OPTIONAL{?organization wdt:P16 ?emailAddress.}
+   SERVICE wikibase:label { bd:serviceParam wikibase:language "zh,en". }
    ?wdItemProp wikibase:directClaim wdt:P33.
    ?officialWebsiteProp wikibase:directClaim wdt:P22.
    ?orgTypeProp wikibase:directClaim wdt:P51.
+   ?streetAddressProp wikibase:directClaim wdt:P29. 
+   ?inceptionProp wikibase:directClaim wdt:P19.
+   ?phoneNumberProp wikibase:directClaim wdt:P25.
+   ?emailAddressProp wikibase:directClaim wdt:P16.
 } ORDER BY (?organizationLabel)

@@ -4,13 +4,12 @@
 {{ define "content" }}
 
 <h1>{{ .organizationLabel }}</h1>
-<p>{{ .description}}</p>
-
-<ul>
-	<li>{{ .orgTypePropLabel }}: {{ .orgTypeLabel}}</li>
-	<li>{{ .wdItemPropLabel }}: <a href='https://www.wikidata.org/wiki/{{ .wdItem }}'>{{ .wdItem }}</a></li>
-	<li>{{ .officialWebsitePropLabel }}: <a href='{{ .officialWebsite}}'>{{ .officialWebsite}}</a></li>
-</ul>
+<p><span class="cc-field-name">{{ .orgTypePropLabel }}: </span>{{ .orgTypeLabel }}</p>
+<p><span class="cc-field-name">{{ .inceptionPropLabel }}: </span>{{ .inceptionYear }}</p>
+<p><span class="cc-field-name">{{ .officialWebsitePropLabel }}: </span><a href='{{ .officialWebsite}}'>{{ .officialWebsite}}</a></p>
+<p><span class="cc-field-name">{{ .streetAddressPropLabel }}: </span>{{ .streetAddress }}</p>
+<p><span class="cc-field-name">{{ .phoneNumberPropLabel }}: </span>{{ .phoneNumber }}</p>
+<p><span class="cc-field-name">{{ .emailAddressPropLabel }}: </span><a href='{{ .emailAddress }}'>{{ .emailAddress }}</a></p>
 
 <p><a href='../organizations.html'>Organization Index</a> | <a href='../..'>Home</a></p>
 
