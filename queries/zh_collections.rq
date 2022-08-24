@@ -6,7 +6,7 @@ SELECT DISTINCT ?title ?qid ?collectionLabel ?collectionTypePropLabel ?collectio
 ?subjects ?subjectPropLabel ?languages ?languagePropLabel
 WHERE {
    ?collection wdt:P7 wd:Q85.
-   BIND("[Chinatown Collections in Chinese]" as ?title).
+   BIND("馆藏" as ?title).
    BIND(REPLACE(STR(?collection), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
    OPTIONAL{?collection wdt:P50 ?collectionType.}
    OPTIONAL{?collection wdt:P37 ?description.}

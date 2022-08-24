@@ -4,7 +4,7 @@ SELECT ?title ?qid ?organizationLabel ?description ?wdItemPropLabel ?wdItem
 ?phoneNumber ?phoneNumberPropLabel ?emailAddress ?emailAddressPropLabel
 WHERE {
    ?organization wdt:P7 wd:Q59.
-   BIND("[Organizations in Chinese]" as ?title).
+   BIND("组织" as ?title).
    BIND(REPLACE(STR(?organization), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
    OPTIONAL{?organization wdt:P37 ?description.}
    OPTIONAL{?organization wdt:P51 ?orgType.}
