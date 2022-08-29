@@ -4,6 +4,9 @@ WHERE {
    BIND("民众" as ?title).
    BIND(REPLACE(STR(?person), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
    SERVICE wikibase:label { bd:serviceParam wikibase:language "zh,en". }
+   OPTIONAL{
+        ?person schema:description ?personDescription.
+        FILTER(LANG(?personDescription) = "zh").}
    {
      SELECT ?innerPerson
             (group_concat(distinct ?createdCollectionLink; separator="; ") as ?createdCollections)

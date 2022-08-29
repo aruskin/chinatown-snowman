@@ -11,7 +11,7 @@
     {{ range . }}
     <tr>
         <td><a href="./{{ .qid }}.html">{{ .personLabel }}</a></td>
-        <td></td>
+        <td>{{ .personDescription }}</td>
     </tr>
     {{ end }}
 </table>

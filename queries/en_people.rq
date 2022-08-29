@@ -1,9 +1,12 @@
-SELECT ?title ?qid ?personLabel ?createdCollections ?foundedOrganizations ?maintainsCollections
+SELECT ?title ?qid ?personLabel ?personDescription ?createdCollections ?foundedOrganizations ?maintainsCollections
 WHERE {
    ?person wdt:P7 wd:Q21.
    BIND("People" as ?title).
    BIND(REPLACE(STR(?person), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
    SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+   OPTIONAL{
+        ?person schema:description ?personDescription.
+        FILTER(LANG(?personDescription) = "en").}
    {
      SELECT ?innerPerson
             (group_concat(distinct ?createdCollectionLink; separator="; ") as ?createdCollections)
