@@ -57,8 +57,8 @@ WHERE {
             (group_concat(distinct ?specificRecordsLabel; separator="; ") as ?specificRecordsTypes)
             (group_concat(distinct ?subjectLabel; separator="; ") as ?subjects)
             (group_concat(distinct ?languageLabel; separator="; ") as ?languages)
-            (group_concat(distinct ?creatorLabel; separator="; ") as ?creators)
-            (group_concat(distinct ?maintainerLabel; separator="; ") as ?maintainers)
+            (group_concat(distinct ?creatorLink; separator="; ") as ?creators)
+            (group_concat(distinct ?maintainerLink; separator="; ") as ?maintainers)
      WHERE {
        ?innerCollection wdt:P7 wd:Q85.
        OPTIONAL{?innerCollection wdt:P38 ?generalRecords}
@@ -67,17 +67,21 @@ WHERE {
        OPTIONAL{?innerCollection wdt:P13 ?language}
        OPTIONAL{?innerCollection wdt:P28 ?creator.
          BIND(REPLACE(STR(?creator), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?creatorQid).
+         ?creator rdfs:label ?creatorLabel.
+         FILTER(LANG(?creatorLabel) = "en").
+         BIND(CONCAT("<a href='./", STR(?creatorQid), ".html'>", STR(?creatorLabel), "</a>") AS ?creatorLink).
        }
        OPTIONAL{?innerCollection wdt:P11 ?maintainer.
-        BIND(REPLACE(STR(?maintainer), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?maintainerQid)
+        BIND(REPLACE(STR(?maintainer), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?maintainerQid).
+        ?maintainer rdfs:label ?maintainerLabel.
+        FILTER(LANG(?maintainerLabel) = "en").
+        BIND(CONCAT("<a href='./", STR(?maintainerQid), ".html'>", STR(?maintainerLabel), "</a>") AS ?maintainerLink).
        }
        SERVICE wikibase:label { bd:serviceParam wikibase:language "en". 
           ?generalRecords rdfs:label ?generalRecordsLabel.
           ?specificRecords rdfs:label ?specificRecordsLabel. 
           ?subject rdfs:label ?subjectLabel.
-          ?language rdfs:label ?languageLabel.
-          ?creator rdfs:label ?creatorLabel.
-          ?maintainer rdfs:label ?maintainerLabel.               
+          ?language rdfs:label ?languageLabel.            
        }
       }
      GROUP BY ?innerCollection

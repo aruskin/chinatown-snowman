@@ -9,9 +9,9 @@
 <br>
 <p><span class="cc-field-name">{{ .materialsStartPropLabel }}: </span>{{ .materialsStartYear }}</p>
 <p><span class="cc-field-name">{{ .materialsEndPropLabel }}: </span>{{ .materialsEndYear }}</p>
-<p><span class="cc-field-name">{{ .creatorPropLabel }}: </span>{{ .creators }}</p>
+<p><span class="cc-field-name">{{ .creatorPropLabel }}: </span>{{ safe_html .creators }}</p>
 <p><span class="cc-field-name">{{ .collectionTypePropLabel }}: </span>{{ .collectionTypeLabel }}</p>
-<p><span class="cc-field-name">{{ .maintainerPropLabel }}: </span>{{ .maintainers }}</p>
+<p><span class="cc-field-name">{{ .maintainerPropLabel }}: </span>{{ safe_html .maintainers }}</p>
 <p><span class="cc-field-name">{{ .generalRecordsPropLabel }}: </span>{{ .generalRecordsTypes }}</p>
 <p><span class="cc-field-name">{{ .specificRecordsPropLabel }}: </span>{{ .specificRecordsTypes }}</p>
 <p><span class="cc-field-name">{{ .accessStatusPropLabel }}: </span>{{ .accessStatusLabel }}</p>
