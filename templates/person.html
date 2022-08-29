@@ -4,9 +4,9 @@
 {{ define "content" }}
 
 <h1>{{ .personLabel }}</h1>
-<p><span class="cc-field-name">Collection creator of: </span>{{ .createdCollections }}</p>
-<p><span class="cc-field-name">Founder of: </span>{{ .foundedOrganizations }}</p>
-<p><span class="cc-field-name">Maintainer of: </span>{{ .maintainsCollections }}</p>
+<p><span class="cc-field-name">Collection creator of: </span>{{ safe_html .createdCollections }}</p>
+<p><span class="cc-field-name">Founder of: </span>{{ safe_html .foundedOrganizations }}</p>
+<p><span class="cc-field-name">Maintainer of: </span>{{ safe_html .maintainsCollections }}</p>
 
 <p><a href='./people.html'>People Index</a> | <a href='../index.html'>Home</a></p>
 
