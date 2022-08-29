@@ -1,0 +1,8 @@
+SELECT ?title ?qid ?subjectLabel (COUNT(?collection) AS ?count)
+WHERE {
+   ?collection wdt:P7 wd:Q85;
+               wdt:P23 ?subject.
+   BIND("Subjects" as ?title).
+   BIND(REPLACE(STR(?subject), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
+   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+} GROUP BY ?title ?qid ?subjectLabel ORDER BY DESC(?count)

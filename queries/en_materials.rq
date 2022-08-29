@@ -1,0 +1,7 @@
+SELECT ?qid ?materialLabel (COUNT(?collection) AS ?count)
+WHERE {
+   ?collection wdt:P7 wd:Q85;
+               wdt:P38 ?material.
+   BIND(REPLACE(STR(?material), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
+   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+} GROUP BY ?qid ?materialLabel ORDER BY DESC(?count)

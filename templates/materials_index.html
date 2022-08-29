@@ -1,0 +1,13 @@
+{{ template "base" . }}
+{{ define "title" }}Browse collections by material types{{ end }}
+
+{{ define "content" }}
+<h1>Browse collections by material types</h1>
+    {{ range . }}
+    <h2>{{ .materialLabel }}</h2>
+    {{ include "includes_details.html" (query "collections-by-material.rq" .qid.String) }}
+    {{ end }}
+
+<a href="../index.html">Home</a>
+{{ end }}
+

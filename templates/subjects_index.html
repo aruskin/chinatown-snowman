@@ -1,0 +1,12 @@
+{{ template "base" . }}
+{{ define "title" }}Browse collections by subject{{ end }}
+
+{{ define "content" }}
+<h1>Browse collections by subject</h1>
+    {{ range . }}
+    <h2>{{ .subjectLabel }}</h2>
+    {{ include "includes_details.html" (query "collections-by-subject.rq" .qid.String) }}
+    {{ end }}
+
+<a href="../index.html">Home</a>
+{{ end }}
