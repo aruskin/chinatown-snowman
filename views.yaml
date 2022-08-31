@@ -1,6 +1,10 @@
 views:
   - output: "index.html"
     template: "index.html"
+  - output: "en/index.html"
+    template: "en_index.html"
+  - output: "zh/index.html"
+    template: "zh_index.html"
   - output: "static/index.html"
     template: "static.html"
   - output: "en/organizations.html"
