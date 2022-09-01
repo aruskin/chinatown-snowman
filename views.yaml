@@ -5,8 +5,6 @@ views:
     template: "en_index.html"
   - output: "zh/index.html"
     template: "zh_index.html"
-  - output: "static/index.html"
-    template: "static.html"
   - output: "en/organizations.html"
     query: "en_organizations.rq"
     template: "org_index.html"

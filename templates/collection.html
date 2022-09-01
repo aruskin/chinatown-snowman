@@ -1,4 +1,4 @@
-{{ template "base" . }}
+{{if eq .langCode.String "en" }}{{ template "en_base" . }}{{ else }}{{ template "zh_base" . }}{{ end }}
 {{ define "title" }}{{ .collectionLabel}}{{ end }}
 
 {{ define "content" }}
