@@ -2,23 +2,32 @@
 {{ define "title" }}{{ (index . 0).title}}{{ end }}
 
 {{ define "content" }}
-<h1>{{ (index . 0).title}}</h1>
-{{ if eq (index . 0).langCode.String "en" }}
-    <a role="button" class="btn btn-outline-primary" href="../zh/people.html">zh</a>
-{{ else }}
-    <a role="button" class="btn btn-outline-primary" href="../en/people.html">en</a>
-{{ end }}
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    {{ range . }}
-    <tr>
-        <td><a href="./{{ .qid }}.html">{{ .personLabel }}</a></td>
-        <td>{{ .personDescription }}</td>
-    </tr>
-    {{ end }}
-</table>
-
+<div class="row">
+    <div class="col-10">
+        <h1>{{ (index . 0).title}}</h1>
+    </div>
+    <div class="col-2">
+        {{ if eq (index . 0).langCode.String "en" }}
+            <a role="button" class="btn btn-outline-primary float-end" href="../zh/people.html">zh</a>
+        {{ else }}
+            <a role="button" class="btn btn-outline-primary float-end" href="../en/people.html">en</a>
+        {{ end }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            {{ range . }}
+            <tr>
+                <td><a href="./{{ .qid }}.html">{{ .personLabel }}</a></td>
+                <td>{{ .personDescription }}</td>
+            </tr>
+            {{ end }}
+        </table>
+    </div>
+</div>
 {{ end }}

@@ -2,20 +2,31 @@
 {{ define "title" }}{{ .organizationLabel }}{{ end }}
 
 {{ define "content" }}
-
-<h1>{{ .organizationLabel }}</h1>
-{{ if eq .langCode.String "en" }}
-    <a role="button" class="btn btn-outline-primary" href="../zh/{{ .qid }}.html">zh</a>
-{{ else }}
-    <a role="button" class="btn btn-outline-primary" href="../en/{{ .qid }}.html">en</a>
-{{ end }}
-<p><span class="cc-field-name">{{ .orgTypePropLabel }}: </span>{{ .orgTypeLabel }}</p>
-<p><span class="cc-field-name">{{ .inceptionPropLabel }}: </span>{{ .inceptionYear }}</p>
-<p><span class="cc-field-name">{{ .officialWebsitePropLabel }}: </span><a href='{{ .officialWebsite}}'>{{ .officialWebsite}}</a></p>
-<p><span class="cc-field-name">{{ .streetAddressPropLabel }}: </span>{{ .streetAddress }}</p>
-<p><span class="cc-field-name">{{ .phoneNumberPropLabel }}: </span>{{ .phoneNumber }}</p>
-<p><span class="cc-field-name">{{ .emailAddressPropLabel }}: </span><a href='{{ .emailAddress }}'>{{ .emailAddress }}</a></p>
-
-<p><a href='./organizations.html'>Organization Index</a></p>
-
+<div class="row">
+    <div class="col-10">
+        <h1>{{ .organizationLabel }}</h1>
+    </div>
+    <div class="col-2">
+        {{ if eq .langCode.String "en" }}
+            <a role="button" class="btn btn-outline-primary float-end" href="../zh/{{ .qid }}.html">zh</a>
+        {{ else }}
+            <a role="button" class="btn btn-outline-primary float-end" href="../en/{{ .qid }}.html">en</a>
+        {{ end }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <p><span class="cc-field-name">{{ .orgTypePropLabel }}: </span>{{ .orgTypeLabel }}</p>
+        <p><span class="cc-field-name">{{ .inceptionPropLabel }}: </span>{{ .inceptionYear }}</p>
+        <p><span class="cc-field-name">{{ .officialWebsitePropLabel }}: </span><a href='{{ .officialWebsite}}'>{{ .officialWebsite}}</a></p>
+        <p><span class="cc-field-name">{{ .streetAddressPropLabel }}: </span>{{ .streetAddress }}</p>
+        <p><span class="cc-field-name">{{ .phoneNumberPropLabel }}: </span>{{ .phoneNumber }}</p>
+        <p><span class="cc-field-name">{{ .emailAddressPropLabel }}: </span><a href='{{ .emailAddress }}'>{{ .emailAddress }}</a></p>    
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <p><a href='./organizations.html'>Organization Index</a></p>
+    </div>
+</div>
 {{ end }}

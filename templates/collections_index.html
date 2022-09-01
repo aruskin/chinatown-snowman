@@ -2,26 +2,35 @@
 {{ define "title" }}{{ (index . 0).title}}{{ end }}
 
 {{ define "content" }}
-
-<h1>{{ (index . 0).title}}</h1>
-{{ if eq (index . 0).langCode.String "en" }}
-    <a role="button" class="btn btn-outline-primary" href="../zh/collections.html">zh</a>
-{{ else }}
-    <a role="button" class="btn btn-outline-primary" href="../en/collections.html">en</a>
-{{ end }}
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Type</th>
-        <th>Description</th>
-    </tr>
-    {{ range . }}
-    <tr>
-        <td><a href="./{{ .qid }}.html">{{ .collectionLabel }}</a></td>
-        <td>{{ .collectionTypeLabel }}</td>
-        <td>{{ .description }}</td>
-    </tr>
-    {{ end }}
-</table>
+<div class="row">
+    <div class="col-10">
+        <h1>{{ (index . 0).title}}</h1>
+    </div>
+    <div class="col-2">
+        {{ if eq (index . 0).langCode.String "en" }}
+            <a role="button" class="btn btn-outline-primary float-end" href="../zh/collections.html">zh</a>
+        {{ else }}
+            <a role="button" class="btn btn-outline-primary float-end" href="../en/collections.html">en</a>
+        {{ end }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            {{ range . }}
+            <tr>
+                <td><a href="./{{ .qid }}.html">{{ .collectionLabel }}</a></td>
+                <td>{{ .collectionTypeLabel }}</td>
+                <td>{{ .description }}</td>
+            </tr>
+            {{ end }}
+        </table>
+    </div>
+</div>
 
 {{ end }}
