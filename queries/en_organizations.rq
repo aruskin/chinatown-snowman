@@ -1,10 +1,11 @@
-SELECT ?title ?qid ?organizationLabel ?description ?wdItemPropLabel ?wdItem 
+SELECT ?langCode ?title ?qid ?organizationLabel ?description ?wdItemPropLabel ?wdItem 
 ?officialWebsitePropLabel ?officialWebsite ?orgTypePropLabel ?orgTypeLabel 
 ?streetAddress ?streetAddressPropLabel (year(?inception) as ?inceptionYear) ?inceptionPropLabel  
 ?phoneNumber ?phoneNumberPropLabel ?emailAddress ?emailAddressPropLabel
 WHERE {
    ?organization wdt:P7 wd:Q59.
    BIND("Organizations" as ?title).
+   BIND("en" as ?langCode).
    BIND(REPLACE(STR(?organization), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
    OPTIONAL{?organization wdt:P37 ?description.}
    OPTIONAL{?organization wdt:P51 ?orgType.}

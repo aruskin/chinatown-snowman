@@ -1,4 +1,4 @@
-SELECT DISTINCT ?title ?qid ?collectionLabel ?collectionTypePropLabel ?collectionTypeLabel ?description ?descriptionPropLabel ?wdItemPropLabel ?wdItem ?describedAtURLPropLabel 
+SELECT DISTINCT ?langCode ?title ?qid ?collectionLabel ?collectionTypePropLabel ?collectionTypeLabel ?description ?descriptionPropLabel ?wdItemPropLabel ?wdItem ?describedAtURLPropLabel 
 ?describedAtURL ?creatorPropLabel ?creators ?maintainerPropLabel ?maintainers
 ?materialsStartPropLabel ?materialsEndPropLabel (YEAR(?materialsStart) as ?materialsStartYear) (YEAR(?materialsEnd) as ?materialsEndYear)
 ?digitizationStatusPropLabel ?digitizationStatusLabel ?accessStatusPropLabel ?accessStatusLabel 
@@ -7,6 +7,7 @@ SELECT DISTINCT ?title ?qid ?collectionLabel ?collectionTypePropLabel ?collectio
 WHERE {
    ?collection wdt:P7 wd:Q85.
    BIND("馆藏" as ?title).
+   BIND("zh" as ?langCode).
    BIND(REPLACE(STR(?collection), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
    OPTIONAL{?collection wdt:P50 ?collectionType.}
    OPTIONAL{?collection wdt:P37 ?description.}
