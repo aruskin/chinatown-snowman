@@ -4,6 +4,11 @@
 {{ define "content" }}
 
 <h1>{{ (index . 0).title}}</h1>
+{{ if eq (index . 0).langCode.String "en" }}
+    <a role="button" class="btn btn-outline-primary" href="../zh/collections.html">zh</a>
+{{ else }}
+    <a role="button" class="btn btn-outline-primary" href="../en/collections.html">en</a>
+{{ end }}
 <table>
     <tr>
         <th>Title</th>
@@ -18,7 +23,5 @@
     </tr>
     {{ end }}
 </table>
-
-<p><a href='../en/collections.html'>en</a> | <a href='../zh/collections.html'>zh</a></p>
 
 {{ end }}

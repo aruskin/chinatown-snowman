@@ -4,6 +4,11 @@
 {{ define "content" }}
 
 <h1>{{ .collectionLabel }}</h1>
+{{ if eq .langCode.String "en" }}
+    <a role="button" class="btn btn-outline-primary" href="../zh/{{ .qid }}.html">zh</a>
+{{ else }}
+    <a role="button" class="btn btn-outline-primary" href="../en/{{ .qid }}.html">en</a>
+{{ end }}
 <br>
 <p><span class="cc-field-name">{{ .descriptionPropLabel }}: </span>{{ .description }}</p>
 <br>
@@ -20,7 +25,5 @@
 <p><span class="cc-field-name">{{ .languagePropLabel }}: </span>{{ .languages }}</p>
 
 <p><a href='./collections.html'>Collection Index</a></p>
-
-<p><a href='../en/{{ .qid }}.html'>en</a> | <a href='../zh/{{ .qid }}.html'>zh</a></p>
 
 {{ end }}

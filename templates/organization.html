@@ -4,6 +4,11 @@
 {{ define "content" }}
 
 <h1>{{ .organizationLabel }}</h1>
+{{ if eq .langCode.String "en" }}
+    <a role="button" class="btn btn-outline-primary" href="../zh/{{ .qid }}.html">zh</a>
+{{ else }}
+    <a role="button" class="btn btn-outline-primary" href="../en/{{ .qid }}.html">en</a>
+{{ end }}
 <p><span class="cc-field-name">{{ .orgTypePropLabel }}: </span>{{ .orgTypeLabel }}</p>
 <p><span class="cc-field-name">{{ .inceptionPropLabel }}: </span>{{ .inceptionYear }}</p>
 <p><span class="cc-field-name">{{ .officialWebsitePropLabel }}: </span><a href='{{ .officialWebsite}}'>{{ .officialWebsite}}</a></p>
@@ -12,7 +17,5 @@
 <p><span class="cc-field-name">{{ .emailAddressPropLabel }}: </span><a href='{{ .emailAddress }}'>{{ .emailAddress }}</a></p>
 
 <p><a href='./organizations.html'>Organization Index</a></p>
-
-<p><a href='../en/{{ .qid }}.html'>en</a> | <a href='../zh/{{ .qid }}.html'>zh</a></p>
 
 {{ end }}
