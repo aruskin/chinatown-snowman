@@ -47,3 +47,7 @@ views:
   - output: "en/materials.html"
     query: "en_materials.rq"
     template: "materials_index.html"
+  - output: "en/about.html"
+    template: "en/about.html"
+  - output: "zh/about.html"
+    template: "zh/about.html"
