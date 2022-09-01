@@ -7,6 +7,4 @@
     <h2>{{ .subjectLabel }}</h2>
     {{ include "includes_details.html" (query "collections-by-subject.rq" .qid.String) }}
     {{ end }}
-
-<a href="./index.html">Home</a>
 {{ end }}
