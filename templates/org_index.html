@@ -19,8 +19,8 @@
     <table>
         <tr>
             <th>Name</th>
-            <th>Type</th>
-            <th>Street address</th>
+            <th>{{ (index . 0).orgTypePropLabel }}</th>
+            <th>{{ (index . 0).streetAddressPropLabel }}</th>
         </tr>
         {{ range . }}
         <tr>
