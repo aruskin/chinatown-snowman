@@ -16,19 +16,23 @@
 </div>
 <div class="row">
     <div class="col">
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>{{ (index . 0).orgTypePropLabel }}</th>
-            <th>{{ (index . 0).streetAddressPropLabel }}</th>
-        </tr>
-        {{ range . }}
-        <tr>
-            <td><a href="./{{ .qid }}.html">{{ .organizationLabel }}</a></td>
-            <td>{{ .orgTypeLabel }}</td>
-            <td>{{ .streetAddress }}</td>
-        </tr>
-        {{ end }}
+    <table class="table table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>{{ (index . 0).orgTypePropLabel }}</th>
+                <th>{{ (index . 0).streetAddressPropLabel }}</th>
+            </tr>
+        </thead>
+        <tbody>        
+            {{ range . }}
+            <tr>
+                <td><a href="./{{ .qid }}.html">{{ .organizationLabel }}</a></td>
+                <td>{{ .orgTypeLabel }}</td>
+                <td>{{ .streetAddress }}</td>
+            </tr>
+            {{ end }}
+        </tbody>
     </table>
     </div>
 </div>
