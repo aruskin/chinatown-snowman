@@ -26,8 +26,8 @@
             <tbody>
                 {{ range . }}
                 <tr>
-                    <td><a href="./{{ .qid }}.html">{{ .personLabel }}</a></td>
-                    <td>{{ .personDescription }}</td>
+                    <td class="w-25"><a href="./{{ .qid }}.html">{{ .personLabel }}</a></td>
+                    <td class="w-75">{{ .personDescription }}</td>
                 </tr>
             {{ end }}
             </tbody>

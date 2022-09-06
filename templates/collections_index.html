@@ -27,9 +27,9 @@
             <tbody>
                 {{ range . }}
                 <tr>
-                    <td><a href="./{{ .qid }}.html">{{ .collectionLabel }}</a></td>
-                    <td>{{ .collectionTypeLabel }}</td>
-                    <td>{{ .description }}</td>
+                    <td class="w-25"><a href="./{{ .qid }}.html">{{ .collectionLabel }}</a></td>
+                    <td class="w-25">{{ .collectionTypeLabel }}</td>
+                    <td class="w-50">{{ .description }}</td>
                 </tr>
                 {{ end }}
             </tbody>
