@@ -4,6 +4,7 @@ SELECT DISTINCT ?langCode ?title ?qid ?collectionLabel ?collectionTypePropLabel 
 ?digitizationStatusPropLabel ?digitizationStatusLabel ?accessStatusPropLabel ?accessStatusLabel 
 ?generalRecordsTypes ?generalRecordsPropLabel ?specificRecordsTypes ?specificRecordsPropLabel
 ?subjects ?subjectPropLabel ?languages ?languagePropLabel ?collectionTitle ?collectionTitlePropLabel
+?accessPolicy ?accessPolicyPropLabel ?projectStatus ?projectStatusPropLabel
 WHERE {
    ?collection wdt:P7 wd:Q85;
                wdt:P27 ?collectionTitle.
@@ -11,7 +12,8 @@ WHERE {
    BIND("zh" as ?langCode).
    BIND(REPLACE(STR(?collection), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
    OPTIONAL{?collection wdt:P50 ?collectionType.}
-   OPTIONAL{?collection wdt:P37 ?description.}
+   OPTIONAL{?collection wdt:P37 ?description.
+            FILTER(LANG(?description) = "zh").}
    OPTIONAL{?collection wdt:P33 ?wdItem.}
    OPTIONAL{?collection wdt:P17 ?describedAtURL.}
    OPTIONAL{?collection wdt:P22 ?officialWebsite.}
@@ -19,6 +21,10 @@ WHERE {
    OPTIONAL{?collection wdt:P31 ?materialsEnd.}
    OPTIONAL{?collection wdt:P40 ?digitizationStatus.}
    OPTIONAL{?collection wdt:P32 ?accessStatus.}
+   OPTIONAL{?collection wdt:P41 ?accessPolicy.
+            FILTER(LANG(?accessPolicy) = "zh").}
+   OPTIONAL{?collection wdt:P42 ?projectStatus.
+            FILTER(LANG(?projectStatus) = "zh").}
    SERVICE wikibase:label { bd:serviceParam wikibase:language "zh,en". 
       ?collection rdfs:label ?collectionLabel.
       ?collectionTitleProp rdfs:label ?collectionTitlePropLabel.
@@ -40,6 +46,8 @@ WHERE {
       ?specificRecordsProp rdfs:label ?specificRecordsPropLabel.
       ?subjectProp rdfs:label ?subjectPropLabel.
       ?languageProp rdfs:label ?languagePropLabel.
+      ?accessPolicyProp rdfs:label ?accessPolicyPropLabel.
+      ?projectStatusProp rdfs:label ?projectStatusPropLabel.
    }
    ?wdItemProp wikibase:directClaim wdt:P33.
    ?describedAtURLProp wikibase:directClaim wdt:P17.
@@ -57,7 +65,8 @@ WHERE {
    ?subjectProp wikibase:directClaim wdt:P23.
    ?languageProp wikibase:directClaim wdt:P13.
    ?collectionTitleProp wikibase:directClaim wdt:P27.
-   FILTER(LANG(?description) = "zh").
+   ?accessPolicyProp wikibase:directClaim wdt:P41.
+   ?projectStatusProp wikibase:directClaim wdt:P42.
    FILTER(LANG(?collectionTitle) = "zh").
    {
      SELECT ?innerCollection 

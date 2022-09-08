@@ -21,15 +21,17 @@
 </div>
 <div class="row">
     <div class="col">
-        <p><span class="cc-field-name">{{ .materialsStartPropLabel }}: </span>{{ .materialsStartYear }}</p>
-        <p><span class="cc-field-name">{{ .materialsEndPropLabel }}: </span>{{ .materialsEndYear }}</p>
-        <p><span class="cc-field-name">{{ .creatorPropLabel }}: </span>{{ safe_html .creators }}</p>
         <p><span class="cc-field-name">{{ .collectionTypePropLabel }}: </span>{{ .collectionTypeLabel }}</p>
         <p><span class="cc-field-name">{{ .maintainerPropLabel }}: </span>{{ safe_html .maintainers }}</p>
         <p><span class="cc-field-name">{{ .generalRecordsPropLabel }}: </span>{{ .generalRecordsTypes }}</p>
         <p><span class="cc-field-name">{{ .specificRecordsPropLabel }}: </span>{{ .specificRecordsTypes }}</p>
         <p><span class="cc-field-name">{{ .accessStatusPropLabel }}: </span>{{ .accessStatusLabel }}</p>
         <p><span class="cc-field-name">{{ .digitizationStatusPropLabel }}: </span>{{ .digitizationStatusLabel }}</p>
+        <p><span class="cc-field-name">{{ .accessPolicyPropLabel }}: </span>{{ .accessPolicy }}</p>
+        <p><span class="cc-field-name">{{ .projectStatusPropLabel }}: </span>{{ .projectStatus }}</p>
+        <p><span class="cc-field-name">{{ .materialsStartPropLabel }}: </span>{{ .materialsStartYear }}</p>
+        <p><span class="cc-field-name">{{ .materialsEndPropLabel }}: </span>{{ .materialsEndYear }}</p>
+        <p><span class="cc-field-name">{{ .creatorPropLabel }}: </span>{{ safe_html .creators }}</p>
         <p><span class="cc-field-name">{{ .subjectPropLabel }}: </span>{{ .subjects }}</p>
         <p><span class="cc-field-name">{{ .languagePropLabel }}: </span>{{ .languages }}</p>    
         <p><span class="cc-field-name">{{ .officialWebsitePropLabel }}: </span><a href="{{ .officialWebsite }}">{{ .officialWebsite }}</a></p>  
