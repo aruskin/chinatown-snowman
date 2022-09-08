@@ -1,5 +1,5 @@
 SELECT DISTINCT ?langCode ?title ?qid ?collectionLabel ?collectionTypePropLabel ?collectionTypeLabel ?description ?descriptionPropLabel ?wdItemPropLabel ?wdItem ?describedAtURLPropLabel 
-?describedAtURL ?creatorPropLabel ?creators ?maintainerPropLabel ?maintainers
+?describedAtURL ?officialWebsitePropLabel ?officialWebsite ?creatorPropLabel ?creators ?maintainerPropLabel ?maintainers
 ?materialsStartPropLabel ?materialsEndPropLabel (YEAR(?materialsStart) as ?materialsStartYear) (YEAR(?materialsEnd) as ?materialsEndYear)
 ?digitizationStatusPropLabel ?digitizationStatusLabel ?accessStatusPropLabel ?accessStatusLabel 
 ?generalRecordsTypes ?generalRecordsPropLabel ?specificRecordsTypes ?specificRecordsPropLabel
@@ -13,6 +13,7 @@ WHERE {
    OPTIONAL{?collection wdt:P37 ?description.}
    OPTIONAL{?collection wdt:P33 ?wdItem.}
    OPTIONAL{?collection wdt:P17 ?describedAtURL.}
+   OPTIONAL{?collection wdt:P22 ?officialWebsite.}
    OPTIONAL{?collection wdt:P30 ?materialsStart.}
    OPTIONAL{?collection wdt:P31 ?materialsEnd.}
    OPTIONAL{?collection wdt:P40 ?digitizationStatus.}
@@ -22,6 +23,7 @@ WHERE {
       ?collectionType rdfs:label ?collectionTypeLabel.
       ?wdItemProp rdfs:label ?wdItemPropLabel.
       ?describedAtURLProp rdfs:label ?describedAtURLPropLabel.
+      ?officialWebsiteProp rdfs:label ?officialWebsitePropLabel.
       ?creatorProp rdfs:label ?creatorPropLabel.
       ?maintainerProp rdfs:label ?maintainerPropLabel.
       ?materialsStartProp rdfs:label ?materialsStartPropLabel.
@@ -39,6 +41,7 @@ WHERE {
    }
    ?wdItemProp wikibase:directClaim wdt:P33.
    ?describedAtURLProp wikibase:directClaim wdt:P17.
+   ?officialWebsiteProp wikibase:directClaim wdt:P22.
    ?creatorProp wikibase:directClaim wdt:P28.
    ?maintainerProp wikibase:directClaim wdt:P11.
    ?materialsStartProp wikibase:directClaim wdt:P30.
