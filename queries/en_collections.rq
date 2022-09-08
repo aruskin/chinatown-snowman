@@ -7,6 +7,7 @@ SELECT DISTINCT ?langCode ?title ?qid ?collectionLabel
 ?subjects ?subjectPropLabel ?languages ?languagePropLabel ?collectionTitle ?collectionTitlePropLabel 
 ?accessPolicy ?accessPolicyPropLabel ?projectStatus ?projectStatusPropLabel
 ?projectStartPropLabel ?projectEndPropLabel (YEAR(?projectStart) as ?projectStartYear) (YEAR(?projectEnd) as ?projectEndYear)
+?donors ?donorPropLabel
 WHERE {
    ?collection wdt:P7 wd:Q85;
                wdt:P27 ?collectionTitle.
@@ -54,6 +55,7 @@ WHERE {
       ?projectStatusProp rdfs:label ?projectStatusPropLabel.
       ?projectStartProp rdfs:label ?projectStartPropLabel.
       ?projectEndProp rdfs:label ?projectEndPropLabel.
+      ?donorProp rdfs:label ?donorPropLabel.
    }
    ?wdItemProp wikibase:directClaim wdt:P33.
    ?describedAtURLProp wikibase:directClaim wdt:P17.
@@ -75,6 +77,7 @@ WHERE {
    ?projectStatusProp wikibase:directClaim wdt:P42.
    ?projectStartProp wikibase:directClaim wdt:P43.
    ?projectEndProp wikibase:directClaim wdt:P44.
+   ?donorProp wikibase:directClaim wdt:P24.
    FILTER(LANG(?collectionTitle) = "en").
    {
      SELECT ?innerCollection 
@@ -84,6 +87,7 @@ WHERE {
             (group_concat(distinct ?languageLabel; separator="; ") as ?languages)
             (group_concat(distinct ?creatorLink; separator="; ") as ?creators)
             (group_concat(distinct ?maintainerLink; separator="; ") as ?maintainers)
+            (group_concat(distinct ?donorLink; separator="; ") as ?donors)
      WHERE {
        ?innerCollection wdt:P7 wd:Q85.
        OPTIONAL{?innerCollection wdt:P38 ?generalRecords}
@@ -101,6 +105,12 @@ WHERE {
         ?maintainer rdfs:label ?maintainerLabel.
         FILTER(LANG(?maintainerLabel) = "en").
         BIND(CONCAT("<a href='./", STR(?maintainerQid), ".html'>", STR(?maintainerLabel), "</a>") AS ?maintainerLink).
+       }
+       OPTIONAL{?innerCollection wdt:P24 ?donor.
+        BIND(REPLACE(STR(?donor), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?donorQid).
+        ?donor rdfs:label ?donorLabel.
+        FILTER(LANG(?donorLabel) = "en").
+        BIND(CONCAT("<a href='./", STR(?donorQid), ".html'>", STR(?donorLabel), "</a>") AS ?donorLink).
        }
        SERVICE wikibase:label { bd:serviceParam wikibase:language "en". 
           ?generalRecords rdfs:label ?generalRecordsLabel.
