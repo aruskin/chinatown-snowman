@@ -5,6 +5,7 @@ SELECT DISTINCT ?langCode ?title ?qid ?collectionLabel ?collectionTypePropLabel 
 ?generalRecordsTypes ?generalRecordsPropLabel ?specificRecordsTypes ?specificRecordsPropLabel
 ?subjects ?subjectPropLabel ?languages ?languagePropLabel ?collectionTitle ?collectionTitlePropLabel
 ?accessPolicy ?accessPolicyPropLabel ?projectStatus ?projectStatusPropLabel
+?projectStartPropLabel ?projectEndPropLabel (YEAR(?projectStart) as ?projectStartYear) (YEAR(?projectEnd) as ?projectEndYear)
 WHERE {
    ?collection wdt:P7 wd:Q85;
                wdt:P27 ?collectionTitle.
@@ -25,6 +26,8 @@ WHERE {
             FILTER(LANG(?accessPolicy) = "zh").}
    OPTIONAL{?collection wdt:P42 ?projectStatus.
             FILTER(LANG(?projectStatus) = "zh").}
+   OPTIONAL{?collection wdt:P43 ?projectStart.}
+   OPTIONAL{?collection wdt:P44 ?projectEnd.}
    SERVICE wikibase:label { bd:serviceParam wikibase:language "zh,en". 
       ?collection rdfs:label ?collectionLabel.
       ?collectionTitleProp rdfs:label ?collectionTitlePropLabel.
@@ -48,6 +51,8 @@ WHERE {
       ?languageProp rdfs:label ?languagePropLabel.
       ?accessPolicyProp rdfs:label ?accessPolicyPropLabel.
       ?projectStatusProp rdfs:label ?projectStatusPropLabel.
+      ?projectStartProp rdfs:label ?projectStartPropLabel.
+      ?projectEndProp rdfs:label ?projectEndPropLabel.
    }
    ?wdItemProp wikibase:directClaim wdt:P33.
    ?describedAtURLProp wikibase:directClaim wdt:P17.
@@ -67,6 +72,8 @@ WHERE {
    ?collectionTitleProp wikibase:directClaim wdt:P27.
    ?accessPolicyProp wikibase:directClaim wdt:P41.
    ?projectStatusProp wikibase:directClaim wdt:P42.
+   ?projectStartProp wikibase:directClaim wdt:P43.
+   ?projectEndProp wikibase:directClaim wdt:P44.
    FILTER(LANG(?collectionTitle) = "zh").
    {
      SELECT ?innerCollection 
