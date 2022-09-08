@@ -3,9 +3,10 @@ SELECT DISTINCT ?langCode ?title ?qid ?collectionLabel ?collectionTypePropLabel 
 ?materialsStartPropLabel ?materialsEndPropLabel (YEAR(?materialsStart) as ?materialsStartYear) (YEAR(?materialsEnd) as ?materialsEndYear)
 ?digitizationStatusPropLabel ?digitizationStatusLabel ?accessStatusPropLabel ?accessStatusLabel 
 ?generalRecordsTypes ?generalRecordsPropLabel ?specificRecordsTypes ?specificRecordsPropLabel
-?subjects ?subjectPropLabel ?languages ?languagePropLabel
+?subjects ?subjectPropLabel ?languages ?languagePropLabel ?collectionTitle ?collectionTitlePropLabel
 WHERE {
-   ?collection wdt:P7 wd:Q85.
+   ?collection wdt:P7 wd:Q85;
+               wdt:P27 ?collectionTitle.
    BIND("馆藏" as ?title).
    BIND("zh" as ?langCode).
    BIND(REPLACE(STR(?collection), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
@@ -20,6 +21,7 @@ WHERE {
    OPTIONAL{?collection wdt:P32 ?accessStatus.}
    SERVICE wikibase:label { bd:serviceParam wikibase:language "zh,en". 
       ?collection rdfs:label ?collectionLabel.
+      ?collectionTitleProp rdfs:label ?collectionTitlePropLabel.
       ?collectionType rdfs:label ?collectionTypeLabel.
       ?wdItemProp rdfs:label ?wdItemPropLabel.
       ?describedAtURLProp rdfs:label ?describedAtURLPropLabel.
@@ -54,7 +56,9 @@ WHERE {
    ?specificRecordsProp wikibase:directClaim wdt:P48.
    ?subjectProp wikibase:directClaim wdt:P23.
    ?languageProp wikibase:directClaim wdt:P13.
+   ?collectionTitleProp wikibase:directClaim wdt:P27.
    FILTER(LANG(?description) = "zh").
+   FILTER(LANG(?collectionTitle) = "zh").
    {
      SELECT ?innerCollection 
             (group_concat(distinct ?generalRecordsLabel; separator="; ") as ?generalRecordsTypes)

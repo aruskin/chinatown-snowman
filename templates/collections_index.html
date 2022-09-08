@@ -19,7 +19,7 @@
         <table class="table table-bordered table-sm">
             <thead>
                 <tr>
-                    <th>Title</th>
+                    <th>{{ (index . 0).collectionTitlePropLabel }}</th>
                     <th>{{ (index . 0).collectionTypePropLabel }}</th>
                     <th>{{ (index . 0).descriptionPropLabel }}</th>
                 </tr>
@@ -27,7 +27,7 @@
             <tbody>
                 {{ range . }}
                 <tr>
-                    <td class="w-25"><a href="./{{ .qid }}.html">{{ .collectionLabel }}</a></td>
+                    <td class="w-25"><a href="./{{ .qid }}.html">{{ .collectionTitle }}</a></td>
                     <td class="w-25">{{ .collectionTypeLabel }}</td>
                     <td class="w-50">{{ .description }}</td>
                 </tr>
