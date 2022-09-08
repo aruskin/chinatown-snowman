@@ -3,9 +3,17 @@
 {{ define "title" }}About{{ end }}
 
 {{ define "content" }}
-
-<h1>About</h1>
-<a role="button" class="btn btn-outline-primary" href="../zh/about.html">zh</a>
-<p>This is the About page in English.</p>
-
+<div class="row">
+    <div class="col-10">
+        <h1>About</h1>
+    </div>
+    <div class="col-2">
+        <a role="button" class="btn btn-outline-primary float-end" href="../zh/about.html">zh</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <p>This is the About page in English.</p>
+    </div>
+</div>
 {{ end }}

@@ -4,18 +4,31 @@
 
 {{ define "content" }}
 
-<h1>[zh: Chinatown History Directory]</h1>
-<a role="button" class="btn btn-outline-primary" href="../en/index.html">en</a>
-<p>[zh: An index of sources on Boston's Chinatown]</p>
-
-<ul>
-    <li><a href="./collections.html">馆藏</a></li>
-    <li><a href="./organizations.html">组织</a></li>
-    <li><a href="./people.html">民众</a></li>
-</ul>
-<br/>
-<ul>
-    <li><a href="../en/subjects.html">Browse collections by subject (en)</a></li>
-    <li><a href="../en/materials.html">Browse collections by general records type (en)</a></li>
-</ul>
+<div class="row">
+    <div class="col-10">
+        <h1>[zh: Chinatown History Directory]</h1>
+    </div>
+    <div class="col-2">
+        <a role="button" class="btn btn-outline-primary float-end" href="../en/index.html">en</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <p>[zh: An index of sources on Boston's Chinatown]</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <ul>
+            <li><a href="./collections.html">馆藏</a></li>
+            <li><a href="./organizations.html">组织</a></li>
+            <li><a href="./people.html">民众</a></li>
+        </ul>
+        <br/>
+        <ul>
+            <li><a href="../en/subjects.html">Browse collections by subject (en)</a></li>
+            <li><a href="../en/materials.html">Browse collections by general records type (en)</a></li>
+        </ul>
+    </div>
+</div>
 {{ end }}
