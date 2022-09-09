@@ -1,0 +1,6 @@
+SELECT DISTINCT ?qid ?collectionLabel WHERE {
+  ?collection wdt:P7 wd:Q85;
+               wdt:P23 wd:{{.}}.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "zh" }
+  BIND(REPLACE(STR(?collection), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid)
+} ORDER BY ?collectionLabel

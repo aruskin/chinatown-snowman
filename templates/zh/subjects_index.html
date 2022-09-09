@@ -1,0 +1,10 @@
+{{ template "zh_base" . }}
+{{ define "title" }}[zh:Browse collections by subjec]{{ end }}
+
+{{ define "content" }}
+<h1>[zh:Browse collections by subject]</h1>
+    {{ range . }}
+    <h2>{{ .subjectLabel }}</h2>
+    {{ include "includes_details.html" (query "zh_collections-by-subject.rq" .qid.String) }}
+    {{ end }}
+{{ end }}
