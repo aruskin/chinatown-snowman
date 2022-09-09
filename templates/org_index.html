@@ -19,7 +19,7 @@
     <table class="table table-bordered table-sm">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>{{ (index . 0).officialNamePropLabel }}</th>
                 <th>{{ (index . 0).orgTypePropLabel }}</th>
                 <th>{{ (index . 0).streetAddressPropLabel }}</th>
             </tr>
@@ -27,7 +27,7 @@
         <tbody>        
             {{ range . }}
             <tr>
-                <td class="w-25"><a href="./{{ .qid }}.html">{{ .organizationLabel }}</a></td>
+                <td class="w-25"><a href="./{{ .qid }}.html">{{ .officialName }}</a></td>
                 <td class="w-25">{{ .orgTypeLabel }}</td>
                 <td class="w-50">{{ .streetAddress }}</td>
             </tr>

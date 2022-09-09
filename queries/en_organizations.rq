@@ -1,9 +1,10 @@
 SELECT ?langCode ?title ?qid ?organizationLabel ?description ?wdItemPropLabel ?wdItem 
 ?officialWebsitePropLabel ?officialWebsite ?orgTypePropLabel ?orgTypeLabel 
 ?streetAddress ?streetAddressPropLabel (year(?inception) as ?inceptionYear) ?inceptionPropLabel  
-?phoneNumber ?phoneNumberPropLabel ?emailAddress ?emailAddressPropLabel
+?phoneNumber ?phoneNumberPropLabel ?emailAddress ?emailAddressPropLabel ?officialName ?officialNamePropLabel
 WHERE {
-   ?organization wdt:P7 wd:Q59.
+   ?organization wdt:P7 wd:Q59;
+                 wdt:P26 ?officialName.
    BIND("Organizations" as ?title).
    BIND("en" as ?langCode).
    BIND(REPLACE(STR(?organization), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
@@ -23,4 +24,6 @@ WHERE {
    ?inceptionProp wikibase:directClaim wdt:P19.
    ?phoneNumberProp wikibase:directClaim wdt:P25.
    ?emailAddressProp wikibase:directClaim wdt:P16.
+   ?officialNameProp wikibase:directClaim wdt:P26.
+   FILTER(LANG(?officialName) = "en").
 } ORDER BY (?organizationLabel)
