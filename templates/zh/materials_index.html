@@ -2,9 +2,20 @@
 {{ define "title" }}[zh:Browse collections by material types]{{ end }}
 
 {{ define "content" }}
-<h1>[zh:Browse collections by material types]</h1>
-    {{ range . }}
-    <h2>{{ .materialLabel }}</h2>
-    {{ include "includes_details.html" (query "zh_collections-by-material.rq" .qid.String) }}
-    {{ end }}
+<div class="row">
+    <div class="col-10">
+        <h1>[zh:Browse collections by material types]</h1>
+    </div>
+    <div class="col-2">
+        <a role="button" class="btn btn-outline-primary float-end" href="../en/materials.html">en</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ range . }}
+        <h2>{{ .materialLabel }}</h2>
+        {{ include "includes_details.html" (query "zh_collections-by-material.rq" .qid.String) }}
+        {{ end }}
+    </div>
+</div>  
 {{ end }}

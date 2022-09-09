@@ -2,9 +2,18 @@
 {{ define "title" }}Browse collections by subject{{ end }}
 
 {{ define "content" }}
-<h1>Browse collections by subject</h1>
-    {{ range . }}
-    <h2>{{ .subjectLabel }}</h2>
-    {{ include "includes_details.html" (query "en_collections-by-subject.rq" .qid.String) }}
-    {{ end }}
+<div class="row">
+    <div class="col-10">
+        <h1>Browse collections by subject</h1>
+    </div>
+    <div class="col-2"><a role="button" class="btn btn-outline-primary float-end" href="../zh/subjects.html">zh</a></div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ range . }}
+        <h2>{{ .subjectLabel }}</h2>
+        {{ include "includes_details.html" (query "en_collections-by-subject.rq" .qid.String) }}
+        {{ end }}
+    </div>
+</div>
 {{ end }}
