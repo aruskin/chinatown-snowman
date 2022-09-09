@@ -1,10 +1,20 @@
-SELECT ?langCode ?title ?qid ?personLabel ?personDescription ?createdCollections ?foundedOrganizations ?maintainsCollections
+SELECT ?langCode ?title ?qid ?personLabel ?personDescription ?createdCollections ?foundedOrganizations ?maintainsCollections ?donatedCollections
+?donorPropLabel ?creatorPropLabel ?maintainerPropLabel ?founderPropLabel
 WHERE {
    ?person wdt:P7 wd:Q21.
    BIND("People" as ?title).
    BIND("en" as ?langCode).
    BIND(REPLACE(STR(?person), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
-   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". 
+     ?person rdfs:label ?personLabel.
+     ?donorProp rdfs:label ?donorPropLabel.
+     ?creatorProp rdfs:label ?creatorPropLabel.
+     ?maintainerProp rdfs:label ?maintainerPropLabel.
+     ?founderProp rdfs:label ?founderPropLabel.}
+   ?donorProp wikibase:directClaim wdt:P24.
+   ?creatorProp wikibase:directClaim wdt:P28.
+   ?maintainerProp wikibase:directClaim wdt:P11.
+   ?founderProp wikibase:directClaim wdt:P10.
    OPTIONAL{
         ?person schema:description ?personDescription.
         FILTER(LANG(?personDescription) = "en").}
@@ -13,6 +23,7 @@ WHERE {
             (group_concat(distinct ?createdCollectionLink; separator="; ") as ?createdCollections)
             (group_concat(distinct ?foundedOrgLink; separator="; ") as ?foundedOrganizations)
             (group_concat(distinct ?maintainsCollectionLink; separator="; ") as ?maintainsCollections)
+            (group_concat(distinct ?donatedCollectionLink; separator="; ") as ?donatedCollections)
      WHERE {
        ?innerPerson wdt:P7 wd:Q21.
        OPTIONAL{?innerPerson ^wdt:P28 ?createdCollection.
@@ -30,6 +41,12 @@ WHERE {
                ?maintainsCollection rdfs:label ?maintainsCollectionLabel.
                FILTER(LANG(?maintainsCollectionLabel) = "en").
                BIND(CONCAT("<a href='./", STR(?maintainsCollectionQid), ".html'>", STR(?maintainsCollectionLabel), "</a>") AS ?maintainsCollectionLink)
+               }
+       OPTIONAL{?innerPerson ^wdt:P24 ?donatedCollection.
+               BIND(REPLACE(STR(?donatedCollection), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?donatedCollectionQid).
+               ?donatedCollection rdfs:label ?donatedCollectionLabel.
+               FILTER(LANG(?donatedCollectionLabel) = "en").
+               BIND(CONCAT("<a href='./", STR(?donatedCollectionQid), ".html'>", STR(?donatedCollectionLabel), "</a>") AS ?donatedCollectionLink)
                }
      } GROUP BY ?innerPerson 
    }

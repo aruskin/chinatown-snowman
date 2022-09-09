@@ -16,9 +16,16 @@
 </div>
 <div class="row">
     <div class="col">
-        <p><span class="cc-field-name">Collection creator of: </span>{{ safe_html .createdCollections }}</p>
-        <p><span class="cc-field-name">Founder of: </span>{{ safe_html .foundedOrganizations }}</p>
-        <p><span class="cc-field-name">Maintainer of: </span>{{ safe_html .maintainsCollections }}</p>        
+        <p>{{ .personDescription }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <p><span class="cc-field-name">{{ .creatorPropLabel }}: </span>{{ safe_html .createdCollections }}</p>
+        <p><span class="cc-field-name">{{ .maintainerPropLabel }}: </span>{{ safe_html .maintainsCollections }}</p>
+        <p><span class="cc-field-name">{{ .donorPropLabel }}: </span>{{ safe_html .donatedCollections }}</p>
+        <br />
+        <p><span class="cc-field-name">{{ .founderPropLabel }}: </span>{{ safe_html .foundedOrganizations }}</p>   
     </div>
 </div>
 <div class="row">

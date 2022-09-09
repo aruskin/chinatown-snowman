@@ -16,22 +16,11 @@
 </div>
 <div class="row">
     <div class="col">
-        <table class="table table-bordered table-sm">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{ range . }}
-                <tr>
-                    <td class="w-25"><a href="./{{ .qid }}.html">{{ .personLabel }}</a></td>
-                    <td class="w-75">{{ .personDescription }}</td>
-                </tr>
+        <ul>
+            {{ range . }}
+            <li><a href="./{{ .qid }}.html">{{ .personLabel }}</a></li>
             {{ end }}
-            </tbody>
-        </table>
+        </ul>
     </div>
 </div>
 {{ end }}
