@@ -13,7 +13,43 @@
 </div>
 <div class="row">
     <div class="col">
-        <p>This is the About page in English.</p>
+        <h2>Project Background</h2>
+        <p>
+        Boston's Chinatown is home to many community-oriented cultural and activist organizations. These organizations, along with many longtime neighborhood residents, hold a wealth of historical collections of photographs, newsletters, flyers, recorded interviews, maps, meeting minutes, and more. In addition, many area libraries, archives, and museums host collections pertaining to Chinatown's history. Together, this material tells a powerful and complex history, and access to them can enrich our understanding of this neighborhood's history.
+        </p>
+        <p>
+        In the spring of 2021, the Boston Research Center met with community partners including representatives from <a href="https://bcnc.net/" target="_blank">Boston Chinatown Neighborhood Center</a>, <a href="https://www.paoartscenter.org/" target="_blank">Pao Arts Center</a>, <a href="https://www.chsne.org/" target="_blank">Chinese Historical Society of New England</a>, the <a href="https://chinatownclt.org/" target="_blank">Chinatown Community Land Trust</a>, the <a href="https://www.bpl.org/locations/83/" target="_blank">Chinatown Branch of the Boston Public Library</a>, the <a href="http://www.focl-boston.org/" target="_blank">Friends of the Chinatown Library</a>, as well as author Dr. Michael Liu. In a series of planning meetings, our partners cited concerns that neighborhood historical materials are scattered throughout the city&mdash;some are accessible to the public, but even more are hidden. They further advised us that community members looking to learn more about their neighborhood history would benefit from a publicly accessible database linking relevant collections&mdash;a launching point for neighborhood research. These discussions also revealed that such an inventory could: contribute information to ongoing community projects, such as an interactive map about Chinatown's immigration history; identify items in need of preservation support; and establish partnerships for future collaborative efforts, including digitization projects. Our advisors also urged us to create a bilingual website, to ensure that the project was accessible to Boston's Chinatown community.
+        </p>
+        <h2>Implementation </h2>
+        <p>
+        With these collective ambitions in mind, we worked with our community advisors to develop a survey, which has been made available in <a href="https://bpl.libwizard.com/f/chinatown-survey-chinese-simp" target="_blank">simplified</a> and <a href="https://bpl.libwizard.com/f/chinatown-survey-chinese-trad" target="_blank">traditional</a> Chinese script, as well as in <a href="https://bpl.libwizard.com/f/chinatown-survey-eng" target="_blank">English</a>. We shared print and digital versions of this survey with repositories and community members, and over the course of 2021, gathered survey results to document archival collections held at universities and other repositories, blogs, art installations, personal collections, and other ways of documenting Chinatown's history. 
+        </p>
+        <p>
+        We established data models for representing collections, organizations, and people in a structured way that would allow us to create a searchable and browsable directory of collections. In coming up with our data models and controlled vocabularies, we looked at similar projects, such as <a href="http://cultural-opposition.eu/registry/" target="_blank">COURAGE</a>, and consulted with archivists. BRC staff parsed and coded the initial survey responses according to these data models, following up with respondees to get additional information about their collections where necessary. Once the coding process was completed in English, we hired a translator to translate the relevant text into simplified Chinese. 
+        </p>
+        <p>
+        The data was then loaded into a custom Wikibase instance. <a href="https://wikiba.se/" target="_blank">Wikibase</a> is a free, open-source knowledge base software suite that can be used to represent multiple types of entities and the different types of relationships between them. We chose to use Wikibase due to the way it handles multilingual data, allowing us to easily store field names and values in English and Chinese, as well as the flexibility its schema provides, allowing us to potentially expand our project scope down the line to include entities such as events. 
+        </p>
+        <p>
+        Finally, we developed a website that pulls in data from the Wikibase and presents it in a more user-friendly manner. The web interface for the project currently uses <a href="https://github.com/glaciers-in-archives/snowman" target="_blank">Snowman</a>, a static site generator for SPARQL backends. 
+        </p>
+        <p>
+        In the summer of 2022, the BRC collaborated with the Chinese Historical Society of New England (CHSNE) to hold design meetings with their stakeholders to gather their feedback about the Chinatown Collections Project. Dr. Heang Leung Rubin acted as the facilitator for this design meeting. The group provided feedback about ways to ensure the web project's accessibility, interactivity, and visual appeal for a variety of potential end-users, including neighborhood residents, community agencies, students, scholars, educators, and visitors to Chinatown.
+        </p>
+        <p>
+        In the next phase of this project, we plan to migrate this data into a <a href="https://dsg.northeastern.edu/ceres/" target="_blank">CERES</a>-supported site, which will include browsing capabilities and more sophisticated design.
+        </p>
+        <h2>About the Boston Research Center</h2>
+        <p>
+        The <a href="https://bostonresearchcenter.org/" target="_blank">Boston Research Center</a> (BRC), based in the <a href="https://library.northeastern.edu/" target="_blank">Northeastern University Library</a>, is a digital community history and archives lab, built in partnership with the <a href="https://www.bpl.org/" target="_blank">Boston Public Library</a>. The BRC's mission is to help bring Boston's deep neighborhood and community histories to light through the creation and use of new technologies. Through these technologies, Boston residents can share the underrepresented stories from their community's past, as well as a deeper understanding of how this past shapes our present. 
+        </p>
+        <p>
+        The BRC is hosted at Northeastern, but is designed to be a collaborative effort among many organizations in Boston&mdash;civic, research, teaching, and cultural heritage&mdash;devoted to developing institutional partnerships and fostering community engagement.
+        </p>
+        <p><em>
+        Funded in part by generous support from the Andrew W. Mellon Foundation and the National Endowment for the Humanities.
+        </em>
+        </p>
     </div>
 </div>
 {{ end }}
