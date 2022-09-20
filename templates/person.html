@@ -19,15 +19,21 @@
         <p>{{ .personDescription }}</p>
     </div>
 </div>
-<div class="row">
-    <div class="col">
-        <p><span class="cc-field-name">{{ .creatorPropLabel }}: </span>{{ safe_html .createdCollections }}</p>
-        <p><span class="cc-field-name">{{ .maintainerPropLabel }}: </span>{{ safe_html .maintainsCollections }}</p>
-        <p><span class="cc-field-name">{{ .donorPropLabel }}: </span>{{ safe_html .donatedCollections }}</p>
-        <br />
-        <p><span class="cc-field-name">{{ .founderPropLabel }}: </span>{{ safe_html .foundedOrganizations }}</p>   
+<dl>
+    <div class="row">
+        <dt class="col-sm-3">{{ .creatorPropLabel }}</dt>
+        <dd class="col-sm-9">{{ safe_html .createdCollections }}</dd>
+        <dt class="col-sm-3">{{ .maintainerPropLabel }}</dt>
+        <dd class="col-sm-9">{{ safe_html .maintainsCollections }}</dd>
+        <dt class="col-sm-3">{{ .donorPropLabel }}</dt>
+        <dd class="col-sm-9">{{ safe_html .donatedCollections }}</dd>
     </div>
-</div>
+    <br>
+    <div class="row">
+        <dt class="col-sm-3">{{ .founderPropLabel }}</dt>
+        <dd class="col-sm-9">{{ safe_html .foundedOrganizations }}</dd>
+    </div>
+</dl>
 <div class="row">
     <div class="col-6 mx-auto">
         <a role="button" class="btn btn-primary" href='./people.html'>{{ .title }}</a>
