@@ -1,0 +1,93 @@
+{{ template "en_base" . }}
+
+{{ define "title" }}Data Models{{ end }}
+
+{{ define "content" }}
+<div class="row">
+    <div class="col-10">
+        <h1>Data Models</h1>
+    </div>
+    <!--div class="col-2">
+        <a role="button" class="btn btn-outline-primary float-end" href="../zh/data_model.html">zh</a>
+    </div-->
+</div>
+<div class="row">
+    <div class="col">
+        <h2>Collection Data Model</h2>
+        <p>We use the term collection broadly here&mdash;some of these will be archival collections held at universities, but we are also including Wordpress blogs, art installations, personal collections, etc. Archival "collections" may be entire fonds, series, or files with specific relevance to Boston's Chinatown, as well as fonds, series, or files that happen to include materials related to Boston's Chinatown.</p>
+        <dl class="row">
+            <dt class="col-sm-3">title</dt>
+            <dd class="col-sm-9">Official title or brief descriptive statement to uniquely identify the collection.</dd>
+            <dt class="col-sm-3">description</dt>
+            <dd class="col-sm-9">Description of the purpose of the collection, how it was put together, what it contains, etc.</dd>
+            <dt class="col-sm-3">material types (general)</dt>
+            <dd class="col-sm-9">Term describing the general form of materials in the collection. Allowed values: terms from the National Archives <a href="https://www.archives.gov/research/catalog/lcdrg/authority_lists/grtlist.html" target="_blank">General Records Type Authority List</a></dd>
+            <dt class="col-sm-3">material types (specific)</dt>
+            <dd class="col-sm-9">Term or short phrase describing the specific type/form of material included in the collection. Allowed values: terms from the <a href="https://www.getty.edu/research/tools/vocabularies/aat/" target="_blank">Getty Art and Architecture Thesaurus</a> (under Visual Works or Information Forms hierarchies) </dd>
+            <dt class="col-sm-3">materials start date</dt>
+            <dd class="col-sm-9">Year the oldest item in the collection was created</dd>
+            <dt class="col-sm-3">materials end date</dt>
+            <dd class="col-sm-9">Year the newest item in the collection was created</dd>
+            <dt class="col-sm-3">subject</dt>
+            <dd class="col-sm-9">Term or short phrase describing the primary topic or theme of the collection</dd>
+            <dt class="col-sm-3">language</dt>
+            <dd class="col-sm-9">Any language(s) significantly used (i.e., more than just a few words or a phrases) in the materials in the collection</dd>
+            <dt class="col-sm-3">official website</dt>
+            <dd class="col-sm-9">Site of any digitized materials in the collection or official homepage of collection</dd>
+            <dt class="col-sm-3">described at URL</dt>
+            <dd class="col-sm-9">Site describing the collection; for archival collections, this should be the URL of the finding aid; for other types, this might be the “About” page of the official site</dd>
+            <dt class="col-sm-3">collection type</dt>
+            <dd class="col-sm-9">Term identifying the type of the collection. Allowed values: archival collection, website, personal collection</dd>
+            <dt class="col-sm-3">records creator</dt>
+            <dd class="col-sm-9">Person or organization responsible for the aggregation or aggregate creation of the materials in the collection.</dd>
+            <dt class="col-sm-3">donor</dt>
+            <dd class="col-sm-9">Person or organization responsible for donating the materials to the maintainer.</dd>
+            <dt class="col-sm-3">maintainer</dt>
+            <dd class="col-sm-9">Person or organization responsible for hosting and managing the collection.</dd>
+            <dt class="col-sm-3">access restriction status</dt>
+            <dd class="col-sm-9">Indication of whether or not there are access restrictions on the materials. Allowed values: term from National Archives <a href="https://www.archives.gov/research/catalog/lcdrg/authority_lists/accesslist.html" target="_blank">Access Restriction Status Authority List</a></a></dd>
+            <dt class="col-sm-3">digitization status</dt>
+            <dd class="col-sm-9">Indication of whether the materials in the collection exist in digital form. Allowed values: born-digital, fully digitized, partially digitized, not digitized</dd>
+            <dt class="col-sm-3">access policy notes</dt>
+            <dd class="col-sm-9">Any additional information not covered by the access restriction and digitization status that would help a user figure out how to gain access to the materials in the collection.</dd>
+            <dt class="col-sm-3">project status</dt>
+            <dd class="col-sm-9">Description of the current project status: has the project been completed, is it on hiatus, are materials still actively being added/processed/digitized?</dd>
+            <dt class="col-sm-3">project start year</dt>
+            <dd class="col-sm-9">Year the collection started accruing materials</dd>
+            <dt class="col-sm-3">project end year</dt>
+            <dd class="col-sm-9">Year the collection stopped accruing materials (don't include if there are still expected accruals)</dd>
+        </dl>
+        <h2>Organization Data Model</h2>
+        <p>The organizations represented in the database are groups or institutions connected to the collections as maintainers, donors, or creators.</p>
+        <dl class="row">
+            <dt class="col-sm-3">official name</dt>
+            <dd class="col-sm-9">The organization's official name.</dd>
+            <dt class="col-sm-3">organization type</dt>
+            <dd class="col-sm-9"> Term identifying the type of the organization. Allowed values: academic archive, municipal archive, community organization, historical society.
+            </dd>
+            <dt class="col-sm-3">inception</dt>
+            <dd class="col-sm-9">Year the organization came into existence</dd>
+            <dt class="col-sm-3">official website</dt>
+            <dd class="col-sm-9">Organization's official website</dd>
+            <dt class="col-sm-3">street address</dt>
+            <dd class="col-sm-9">Full street address of the organization's headquarters</dd>
+            <dt class="col-sm-3">phone number</dt>
+            <dd class="col-sm-9">Official contact number for the organization</dd>
+            <dt class="col-sm-3">email address</dt>
+            <dd class="col-sm-9">Official contact email for the organization</dd>
+        </dl>
+        <h2>Person Data Model</h2>
+        <p>The people represented in the database are individuals connected to the collections as maintainers, donors, or creators. In order to protect the privacy of living people, we have only collected minimal information about individuals who are not public figures.</p>
+        <dl class="row">
+            <dt class="col-sm-3">records creator (for)</dt>
+            <dd class="col-sm-9">Collection containing records created by the person.</dd>
+            <dt class="col-sm-3">maintainer (for)</dt>
+            <dd class="col-sm-9">Collection the person is responsible for hosting/managing.</dd>
+            <dt class="col-sm-3">donor (for)</dt>
+            <dd class="col-sm-9">Collection containing records donated by the person.</dd>
+            <dt class="col-sm-3">founder (of)</dt>
+            <dd class="col-sm-9">Organization the person founded.</dd>
+        </dl>    
+    </div>
+</div>
+{{ end }}
