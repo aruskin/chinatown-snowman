@@ -1,0 +1,21 @@
+{{ template "en_base" . }}
+{{ define "title" }}Browse collections by maintainer{{ end }}
+
+{{ define "content" }}
+<div class="row">
+    <div class="col-10">
+        <h1>Browse collections by maintainer</h1>
+    </div>
+    <div class="col-2">
+        <a role="button" class="btn btn-outline-primary float-end" href="../zh/maintainers.html">zh</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ range . }}
+        <h2>{{ .maintainerLabel }}</h2>
+        {{ include "includes_details.html" (query "en_collections-by-maintainer.rq" .qid.String) }}
+        {{ end }}
+    </div>
+</div>
+{{ end }}

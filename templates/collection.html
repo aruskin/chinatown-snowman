@@ -16,33 +16,53 @@
 </div>
 <div class="row">
     <div class="col">
-        <p><span class="cc-field-name">{{ .descriptionPropLabel }}: </span>{{ .description }}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-        <p><span class="cc-field-name">{{ .collectionTypePropLabel }}: </span>{{ .collectionTypeLabel }}</p>
-        <p><span class="cc-field-name">{{ .creatorPropLabel }}: </span>{{ safe_html .creators }}</p>
-        <p><span class="cc-field-name">{{ .donorPropLabel }}: </span>{{ safe_html .donors }}</p>
-        <br/>
-        <p><span class="cc-field-name">{{ .generalRecordsPropLabel }}: </span>{{ .generalRecordsTypes }}</p>
-        <p><span class="cc-field-name">{{ .specificRecordsPropLabel }}: </span>{{ .specificRecordsTypes }}</p>
-        <p><span class="cc-field-name">{{ .materialsStartPropLabel }}: </span>{{ .materialsStartYear }}</p>
-        <p><span class="cc-field-name">{{ .materialsEndPropLabel }}: </span>{{ .materialsEndYear }}</p> 
-        <p><span class="cc-field-name">{{ .subjectPropLabel }}: </span>{{ .subjects }}</p>
-        <p><span class="cc-field-name">{{ .languagePropLabel }}: </span>{{ .languages }}</p>   
-        <br/>
-        <p><span class="cc-field-name">{{ .maintainerPropLabel }}: </span>{{ safe_html .maintainers }}</p>
-        <p><span class="cc-field-name">{{ .accessStatusPropLabel }}: </span>{{ .accessStatusLabel }}</p>
-        <p><span class="cc-field-name">{{ .digitizationStatusPropLabel }}: </span>{{ .digitizationStatusLabel }}</p>
-        <p><span class="cc-field-name">{{ .accessPolicyPropLabel }}: </span>{{ .accessPolicy }}</p>
-        <br/>
-        <p><span class="cc-field-name">{{ .projectStatusPropLabel }}: </span>{{ .projectStatus }}</p>
-        <p><span class="cc-field-name">{{ .projectStartPropLabel }}: </span>{{ .projectStartYear }}</p>
-        <p><span class="cc-field-name">{{ .projectEndPropLabel }}: </span>{{ .projectEndYear }}</p>
-        <br/>
-        <p><span class="cc-field-name">{{ .officialWebsitePropLabel }}: </span><a href="{{ .officialWebsite }}">{{ .officialWebsite }}</a></p>  
-        <p><span class="cc-field-name">{{ .describedAtURLPropLabel }}: </span><a href="{{ .describedAtURL }}">{{ .describedAtURL }}</a></p>           
+        <p>{{ .description }}</p>
+        <dl>
+            <div class="row">
+                <dt class="col-sm-3">{{ .generalRecordsPropLabel }}</dt>
+                <dd class="col-sm-9">{{ .generalRecordsTypes }}</dd>
+                <dt class="col-sm-3">{{ .specificRecordsPropLabel }}</dt>
+                <dd class="col-sm-9">{{ .specificRecordsTypes }}</dd>
+                <dt class="col-sm-3">{{ .materialsStartPropLabel }}</dt>
+                <dd class="col-sm-9">{{ .materialsStartYear }}</dd>
+                <dt class="col-sm-3">{{ .materialsEndPropLabel }}</dt>
+                <dd class="col-sm-9">{{ .materialsEndYear }}</dd>
+                <dt class="col-sm-3">{{ .subjectPropLabel }}</dt>
+                <dd class="col-sm-9">{{ .subjects }}</dd>
+                <dt class="col-sm-3">{{ .languagePropLabel }}</dt>
+                <dd class="col-sm-9">{{ .languages }}</dd>
+            </div>
+            <br>
+            <div class="row">
+                <dt class="col-sm-3">{{ .officialWebsitePropLabel }}</dt>
+                <dd class="col-sm-9"><a href="{{ .officialWebsite }}">{{ .officialWebsite }}</a></dd>
+                <dt class="col-sm-3">{{ .describedAtURLPropLabel }}</dt>
+                <dd class="col-sm-9"><a href="{{ .describedAtURL }}">{{ .describedAtURL }}</a></dd>
+            </div>
+            <br>
+            <div class="row">
+                <dt class="col-sm-3">{{ .collectionTypePropLabel }}</dt>
+                <dd class="col-sm-9">{{ .collectionTypeLabel }}</dd>
+                <dt class="col-sm-3">{{ .creatorPropLabel }}</dt>
+                <dd class="col-sm-9">{{ safe_html .creators }}</dd>
+                <dt class="col-sm-3">{{ .donorPropLabel }}</dt>
+                <dd class="col-sm-9">{{ safe_html .donors }}</dd>
+                <dt class="col-sm-3">{{ .maintainerPropLabel }}</dt>
+                <dd class="col-sm-9">{{ safe_html .maintainers }}</dd>
+                <dt class="col-sm-3">{{ .accessStatusPropLabel }}</dt>
+                <dd class="col-sm-9">{{ .accessStatusLabel }}</dd>
+                <dt class="col-sm-3">{{ .digitizationStatusPropLabel }}</dt>
+                <dd class="col-sm-9">{{ .digitizationStatusLabel }}</dd>
+                <dt class="col-sm-3">{{ .accessPolicyPropLabel }}</dt>
+                <dd class="col-sm-9">{{ .accessPolicy }}</dd>
+                <dt class="col-sm-3">{{ .projectStatusPropLabel }}</dt>
+                <dd class="col-sm-9">{{ .projectStatus }}</dd>
+                <dt class="col-sm-3">{{ .projectStartPropLabel }}</dt>
+                <dd class="col-sm-9">{{ .projectStartYear }}</dd>
+                <dt class="col-sm-3">{{ .projectEndPropLabel }}</dt>
+                <dd class="col-sm-9">{{ .projectEndYear }}</dd>
+            </div>
+        </dl>
     </div>
 </div>
 <div class="row">
