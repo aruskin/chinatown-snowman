@@ -14,6 +14,15 @@
         {{ end }}
     </div>
 </div>
+{{ if eq (index . 0).langCode.String "en" }}
+<div class="row">
+    <div class="col">
+        <p>
+            The organizations represented in the database are groups or institutions connected to the collections as maintainers, donors, or creators. The organizations listed below include institutions which maintain collections in the database as well as community organizations related to Chinatown. 
+        </p>
+    </div>
+</div>
+{{ end }}
 <div class="row">
     <div class="col">
     <table class="table table-bordered table-sm display" id="organizations-table">

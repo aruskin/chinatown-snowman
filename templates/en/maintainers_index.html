@@ -12,6 +12,13 @@
 </div>
 <div class="row">
     <div class="col">
+        <p>
+            The term “maintainer” refers to the person or organization responsible for hosting and managing the collection. Listed below are the maintainers of the various collections in this database, as well as the collections connected to them. 
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
         {{ range . }}
         <h2>{{ .maintainerLabel }}</h2>
         {{ include "includes_details.html" (query "en_collections-by-maintainer.rq" .qid.String) }}

@@ -14,6 +14,15 @@
         {{ end }}
     </div>
 </div>
+{{ if eq (index . 0).langCode.String "en" }}
+<div class="row">
+    <div class="col">
+        <p>
+            The types of collections listed here include archival collections, websites, and personal collections, and cover a variety of topics related to the Chinatown Neighborhood and Boston's Chinese community. Listed below is a brief description of the collection and its contents, as well as its digitization status.
+        </p>
+    </div>
+</div>
+{{ end }}
 <div class="row">
     <div class="col">
         <table class="table table-bordered table-sm display" id="collections-table">

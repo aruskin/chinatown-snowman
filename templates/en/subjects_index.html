@@ -10,6 +10,13 @@
 </div>
 <div class="row">
     <div class="col">
+        <p>
+            Throughout its history, Chinatown has played host to a number of different cultural and activist organizations. This diversity is reflected in the subject matter covered in the collections documented in this database. In many cases more than one subject will appear in a given collection.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
         {{ range . }}
         <h2>{{ .subjectLabel }}</h2>
         {{ include "includes_details.html" (query "en_collections-by-subject.rq" .qid.String) }}

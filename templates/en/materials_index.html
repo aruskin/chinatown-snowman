@@ -12,6 +12,13 @@
 </div>
 <div class="row">
     <div class="col">
+        <p>
+            The collections documented in this database contain a wide variety of materials. In many cases more than one material type will appear in a given collection.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
         {{ range . }}
         <h2>{{ .materialLabel }}</h2>
         {{ include "includes_details.html" (query "en_collections-by-material.rq" .qid.String) }}
