@@ -1,35 +1,51 @@
 {{ template "zh_base" . }}
 
-{{ define "title" }}[zh: Chinatown History Directory]{{ end }}
+{{ define "title" }}[zh:Chinatown History Directory]{{ end }}
 
 {{ define "content" }}
 
 <div class="row">
     <div class="col-10">
-        <h1>[zh: Chinatown History Directory]</h1>
+        <h1>[zh:Chinatown History Directory]</h1>
     </div>
     <div class="col-2">
-        <a role="button" class="btn btn-outline-primary float-end" href="../en/index.html">en</a>
+        <a role="button" class="btn btn-outline-primary float-end" href="../en/index.html">en</a>    
     </div>
 </div>
 <div class="row">
     <div class="col">
-        <p>[zh: An index of sources on Boston's Chinatown]</p>
+        <p class="lead">[zh:An index of sources on Boston's Chinatown]</p>
     </div>
 </div>
 <div class="row">
+<div class="col">
+    <p>
+        [zh:Boston's Chinatown is home to many community-oriented cultural and activist organizations. These organizations, along with many longtime neighborhood residents, hold a wealth of historical collections of photographs, newsletters, flyers, recorded interviews, maps, meeting minutes, and more. In addition, many area libraries, archives, and museums host collections pertaining to Chinatown's history. In collaboration with Chinatown community partners, this website aims to document archival collections drawn from a diverse range of sources.]
+    </p>
+    <p>
+        [zh:This directory is intended as a launching point for neighborhood research, presenting indexes of these collections and the individuals and organizations connected to them.]
+    </p>
+</div>
+</div>
+<div class="row">
     <div class="col">
-        <ul>
-            <li><a href="./collections.html">馆藏</a></li>
-            <li><a href="./organizations.html">组织</a></li>
-            <li><a href="./people.html">民众</a></li>
-        </ul>
-        <br/>
-        <ul>
-            <li><a href="./maintainers.html">[zh:Browse collections by maintainer]</a></li>
-            <li><a href="./subjects.html">[zh:Browse collections by subject]</a></li>
-            <li><a href="./materials.html">[zh:Browse collections by material types]</a></li>
-        </ul>
+        <h2>[zh:Indexes by entity type]</h2>
+        <h3><a href="./collections.html">馆藏</a></h3>
+        <p>[zh:Archival collections, websites, and personal collections]</p>
+        <h3><a href="./organizations.html">组织</a></h3>
+        <p>[zh:Groups or institutions connected to the collections as maintainers, donors, or creators]</p>
+        <h3><a href="./people.html">民众</a></h3>
+        <p>[zh:Individuals connected to the collections as maintainers, donors, or creators]</p>
+        <br>
+        <h2>[zh:Browse collections by...]</h2>
+        <h3><a href="./maintainers.html">维护者</a></h3>
+        <p>[zh:People or organizations responsible for hosting and managing the collection]</p>
+        <h3><a href="./subjects.html">作品主题</a></h3>
+        <p>[zh:Topics covered in the collection materials]</p>
+        <h3><a href="./materials.html">	一般记录类型</a></h3>
+        <p>[zh:Types and formats of records included in the collection]</p>
     </div>
 </div>
+
+
 {{ end }}
