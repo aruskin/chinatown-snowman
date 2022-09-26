@@ -9,3 +9,7 @@
 .w-15 {
     width: 15%;
 }
+
+main > .container {
+    padding: 60px 15px 0;
+}
