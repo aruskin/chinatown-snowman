@@ -25,11 +25,26 @@
 {{ end }}
 <div class="row">
     <div class="col">
-        <ul>
-            {{ range . }}
-            <li><a href="./{{ .qid }}.html">{{ .personLabel }}</a></li>
-            {{ end }}
-        </ul>
+        <table class="table table-bordered table-sm display" id="organizations-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>{{ (index . 0).creatorPropLabel }}</th>
+                    <th>{{ (index . 0).maintainerPropLabel }}</th>
+                    <th>{{ (index . 0).donorPropLabel }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range . }}
+                <tr>
+                    <td class="w-50"><a href="./{{ .qid }}.html">{{ .personLabel }}</a></td>
+                    <td class="w-15">{{ if ne .createdCollections.String "" }} &check; {{ end }}</td>
+                    <td class="w-15">{{ if ne .maintainsCollections.String "" }} &check; {{ end }}</td>
+                    <td class="w-15">{{ if ne .donatedCollections.String "" }} &check; {{ end }}</td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
     </div>
 </div>
 {{ end }}
