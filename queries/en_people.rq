@@ -1,6 +1,6 @@
 SELECT ?langCode ?title ?qid ?personLabel ?personDescription ?createdCollections ?foundedOrganizations ?maintainsCollections ?donatedCollections
 ?donorPropLabel ?creatorPropLabel ?maintainerPropLabel ?founderPropLabel
-?name ?namePropLabel
+?name ?namePropLabel ?officialWebsite ?officialWebsitePropLabel ?emailAddress ?emailAddressPropLabel
 WHERE {
    ?person wdt:P7 wd:Q21;
         wdt:P76 ?name.
@@ -13,16 +13,23 @@ WHERE {
      ?creatorProp rdfs:label ?creatorPropLabel.
      ?maintainerProp rdfs:label ?maintainerPropLabel.
      ?founderProp rdfs:label ?founderPropLabel.
-     ?nameProp rdfs:label ?namePropLabel.}
+     ?nameProp rdfs:label ?namePropLabel.
+     ?officialWebsiteProp rdfs:label ?officialWebsitePropLabel.
+     ?emailAddressProp rdfs:label ?emailAddressPropLabel.}
    ?donorProp wikibase:directClaim wdt:P24.
    ?creatorProp wikibase:directClaim wdt:P28.
    ?maintainerProp wikibase:directClaim wdt:P11.
    ?founderProp wikibase:directClaim wdt:P10.
    ?nameProp wikibase:directClaim wdt:P76.
+   ?officialWebsiteProp wikibase:directClaim wdt:P22.
+   ?emailAddressProp wikibase:directClaim wdt:P16.
    FILTER(LANG(?name) = "en").
    OPTIONAL{
         ?person schema:description ?personDescription.
-        FILTER(LANG(?personDescription) = "en").}
+        FILTER(LANG(?personDescription) = "en").
+   }
+   OPTIONAL{?person wdt:P22 ?officialWebsite.}
+   OPTIONAL{?person wdt:P16 ?emailAddress.}
    {
      SELECT ?innerPerson
             (group_concat(distinct ?createdCollectionLink; separator="; ") as ?createdCollections)

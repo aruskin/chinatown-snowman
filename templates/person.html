@@ -33,6 +33,13 @@
         <dt class="col-sm-3">{{ .founderPropLabel }}</dt>
         <dd class="col-sm-9">{{ safe_html .foundedOrganizations }}</dd>
     </div>
+    <br>
+    <div class="row">
+        <dt class="col-sm-3">{{ .officialWebsitePropLabel }}</dt>
+        <dd class="col-sm-9"><a href='{{ .officialWebsite}}' target="_blank">{{ .officialWebsite }}</a></dd>
+        <dt class="col-sm-3">{{ .emailAddressPropLabel }}</dt>
+        <dd class="col-sm-9"><a href='{{ .emailAddress }}'>{{ replace .emailAddress "mailto:" "" 1}}</a></dd>
+    </div>
 </dl>
 <div class="row">
     <div class="col-6 mx-auto">
