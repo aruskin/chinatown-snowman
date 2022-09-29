@@ -20,13 +20,13 @@
     <dt class="col-sm-3">{{ .inceptionPropLabel }}</dt>
     <dd class="col-sm-9">{{ .inceptionYear }}</dd>
     <dt class="col-sm-3">{{ .officialWebsitePropLabel }}</dt>
-    <dd class="col-sm-9"><a href='{{ .officialWebsite}}'>{{ .officialWebsite}}</a></dd>
+    <dd class="col-sm-9"><a href='{{ .officialWebsite}}' target="_blank">{{ .officialWebsite}}</a></dd>
     <dt class="col-sm-3">{{ .streetAddressPropLabel }}</dt>
     <dd class="col-sm-9">{{ .streetAddress }}</dd>
     <dt class="col-sm-3">{{ .phoneNumberPropLabel }}</dt>
     <dd class="col-sm-9">{{ .phoneNumber }}</dd>
     <dt class="col-sm-3">{{ .emailAddressPropLabel }}</dt>
-    <dd class="col-sm-9"><a href='{{ .emailAddress }}'>{{ .emailAddress }}</a></dd>
+    <dd class="col-sm-9"><a href='{{ .emailAddress }}'>{{ replace .emailAddress "mailto:" "" 1}}</a></dd>
 </dl>
 <div class="row">
     <div class="col-6 mx-auto">
