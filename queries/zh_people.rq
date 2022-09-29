@@ -1,7 +1,9 @@
 SELECT ?langCode ?title ?qid ?personLabel ?createdCollections ?foundedOrganizations ?maintainsCollections ?donatedCollections
 ?donorPropLabel ?creatorPropLabel ?maintainerPropLabel ?founderPropLabel
+?name ?namePropLabel
 WHERE {
-   ?person wdt:P7 wd:Q21.
+   ?person wdt:P7 wd:Q21;
+        wdt:P76 ?name.
    BIND("民众" as ?title).
    BIND("zh" as ?langCode).
    BIND(REPLACE(STR(?person), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
@@ -10,11 +12,14 @@ WHERE {
         ?donorProp rdfs:label ?donorPropLabel.
         ?creatorProp rdfs:label ?creatorPropLabel.
         ?maintainerProp rdfs:label ?maintainerPropLabel. 
-        ?founderProp rdfs:label ?founderPropLabel.}
+        ?founderProp rdfs:label ?founderPropLabel.
+        ?nameProp rdfs:label ?namePropLabel.}
    ?donorProp wikibase:directClaim wdt:P24.
    ?creatorProp wikibase:directClaim wdt:P28.
    ?maintainerProp wikibase:directClaim wdt:P11.
    ?founderProp wikibase:directClaim wdt:P10.
+   ?nameProp wikibase:directClaim wdt:P76.
+   FILTER(LANG(?name) = "en").
    OPTIONAL{
         ?person schema:description ?personDescription.
         FILTER(LANG(?personDescription) = "zh").}
