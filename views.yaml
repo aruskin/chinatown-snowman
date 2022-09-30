@@ -65,3 +65,7 @@ views:
   - output: "zh/maintainers.html"
     query: "zh_maintainers.rq"
     template: "zh/maintainers_index.html"
+  - output: "en/credits.html"
+    template: "en/credits.html"
+  - output: "zh/credits.html"
+    template: "zh/credits.html"
