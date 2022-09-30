@@ -13,7 +13,42 @@
 </div>
 <div class="row">
     <div class="col">
-        <p>[zh:This is the About page in Chinese.]</p>
+        <h2>项目背景</h2>
+        <p>
+            波士顿华埠是许多面向社区的文化和活动家组织所在地。与许多社区长期居民一起，这些组织拥有大量的历史照片、时事通讯、传单、采访录音、地图、会议纪要等。此外，许多当地图书馆、档案馆和博物馆都收藏了与华埠历史有关的馆藏。这些材料共同讲述了一个强大复杂的历史，可用来加深对这个社区历史的理解。
+        </p>
+        <p>
+            2021 年春季，波士顿研究中心会见了多方社区合作伙伴，包括<a href="https://bcnc.net/" target="_blank">波士顿华埠社区中心</a>、<a href="https://www.paoartscenter.org/" target="_blank">包氏艺术中心</a>、<a href="https://www.chsne.org/" target="_blank">纽英伦华人历史协会</a>、<a href="https://chinatownclt.org/" target="_blank">华埠社区土地信托</a>、<a href="https://www.bpl.org/locations/83/" target="_blank">波士顿公共图书馆华埠分馆</a>、<a href="http://www.focl-boston.org/" target="_blank">华埠图书馆之友</a>，以及作者 Michael Liu 博士。在一系列规划会议中，我们的合作伙伴提到，社区历史资料散布在全市各处的情况令人担忧，有些公众可以获得，但更多却深藏难得。他们进一步建议，如有一个可公开访问的数据库将相关馆藏相互联接起来，即可让希望能详细了解其社区历史的社区成员受益，以此作为社区研究的起点。这些讨论还表明，此类存档资料可为正在进行的社区项目提供信息（例如，关于华埠移民历史的互动地图），识别需要保存支持的项目，并为未来的合作努力建立伙伴关系，包括数字化项目。我们的顾问还敦促创建一个双语网站，以确保波士顿华埠社区可以接触到项目。
+        </p>
+        <h2>执行</h2>
+        <p>
+            考虑到这些集体抱负，我们与社区顾问合作制定了一项调查，以<a href="https://bpl.libwizard.com/f/chinatown-survey-chinese-simp" target="_blank">简体中文</a>、<a href="https://bpl.libwizard.com/f/chinatown-survey-chinese-trad" target="_blank">繁体中文</a>和<a href="https://bpl.libwizard.com/f/chinatown-survey-eng" target="_blank">英文</a>进行。我们与储存库和社区成员分享了这次调查的印刷版和数字版，并在 2021 年收集了调查结果，以记录在多所大学和其他储存库、博客、艺术设施、个人藏品和其他记录华埠历史方法所持有的档案藏品。
+        </p>
+        <p>
+            我们建立了数据模型用结构化方式展示藏品、组织和人员，以创建一个可搜索和可浏览的藏品目录。在提出我们的数据模型和受控词汇表时，我们研究了类似的项目（如 <a href="http://cultural-opposition.eu/registry/" target="_blank">COURAGE</a>），并咨询了档案管理员。波士顿研究中心的工作人员根据这些数据模型对最初的调查回复进行了解析和编码，并在必要时跟进受访者以获取所收集资料的更多相关信息。用英文完成了编码过程之后，我们聘请了一名翻译人员将相关文字翻译成了简体中文。
+        </p>
+        <p>
+            然后将数据加载到一个自定义 Wikibase 实例中。 <a href="https://wikiba.se/" target="_blank">Wikibase</a> 是一款免费的开源知识库软件套件，可用于表示多种实体及其之间的不同关系。我们选用 Wikibase 是因为其处理多语言数据的方式，使我们能够轻松地以英文和中文储存字段名与值，还有其模式所提供的灵活性，使我们以后有可能扩大项目范围以包含事件等实体。
+        </p>
+        <p>
+            最后，我们开发了一个网站，从 Wikibase 中提取数据并以更加用户友好的方式呈现。该项目的网络界面目前使用 <a href="https://github.com/glaciers-in-archives/snowman" target="_blank">Snowman</a>，这是一款用于 SPARQL 后端的静态网站生成器。
+        </p>
+        <p>
+            2022 年夏天，波士顿研究中心与纽英仑华人历史协会合作，与利益相关者举行了设计会议，收集他们对华埠藏品项目的反馈。Heang Leung Rubin 博士担任了本次设计会议的主持人。该小组提供了有关如何确保网络项目对潜在最终用户的可用性、交互性和视觉吸引力的方法的反馈，这些用户包括社区居民、社区机构、学生、学者、教育工作者和华埠访客。
+        </p>
+        <p>
+            在这个项目的下一阶段，我们计划将这些数据迁移到一个 <a href="https://dsg.northeastern.edu/ceres/" target="_blank">CERES</a> 支持的网站，将包括浏览功能和更复杂的设计。
+        </p>
+        <h2>关于波士顿研究中心</h2>
+        <p>
+            <a href="https://bostonresearchcenter.org/" target="_blank">波士顿研究中心</a>设于东北大学图书馆，是一个数字社区历史和档案实验室，与<a href="https://www.bpl.org/" target="_blank">波士顿公共图书馆</a>合作建立。波士顿研究中心的使命是通过创造和使用新技术帮助揭示波士顿深厚的邻里和社区历史。通过这些技术，波士顿居民能分享其社区过去未充分展示的故事，还能更深入地了解过去如何塑造了现在。
+        </p>
+        <p>
+            虽然波士顿研究中心设于东北大学，但是，其目的是成为许多波士顿组织（公民、研究、教学和文化遗产）之间的协作努力，致力于发展机构合作伙伴关系和促进社区参与。
+        </p>
+        <p><em>
+            部分资金来自安德鲁·梅隆基金会和国家人文基金会的慷慨支持。
+        </em></p>
     </div>
 </div>
 {{ end }}
