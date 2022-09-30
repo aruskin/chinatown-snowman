@@ -30,17 +30,29 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-          $('#collections-table').dataTable();
+          $('#collections-table').dataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/zh.json'
+            }
+          });
         });
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
-          $('#organizations-table').dataTable();
+          $('#organizations-table').dataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/zh.json'
+            }
+          });
         });
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
-          $('#people-table').dataTable();
+          $('#people-table').dataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/zh.json'
+            }
+          });
         });
     </script>
 </body>
