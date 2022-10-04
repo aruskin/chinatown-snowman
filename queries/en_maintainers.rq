@@ -1,13 +1,13 @@
 SELECT ?qid ?maintainerLabel (COUNT(?collection) AS ?count)
 WHERE {
-   # properties used in query
+   # variables used in query
    BIND(wdt:P7 AS ?instanceOf).
    BIND(wdt:P11 AS ?maintainedBy)
-   # items used in query
    BIND(wd:Q85 AS ?ChinatownCollection).
+   BIND("http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/" AS ?baseURI).
 
    ?collection ?instanceOf ?ChinatownCollection;
                ?maintainedBy ?maintainer.
-   BIND(REPLACE(STR(?maintainer), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
+   BIND(REPLACE(STR(?maintainer), ?baseURI, "") AS ?qid).
    SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
 } GROUP BY ?qid ?maintainerLabel ORDER BY DESC(?count)
