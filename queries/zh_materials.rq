@@ -1,7 +1,13 @@
 SELECT ?qid ?materialLabel (COUNT(?collection) AS ?count)
 WHERE {
-   ?collection wdt:P7 wd:Q85;
-               wdt:P38 ?material.
+   # properties used in query
+   BIND(wdt:P7 AS ?instanceOf).
+   BIND(wdt:P38 AS ?containsMaterial)
+   # items used in query
+   BIND(wd:Q85 AS ?ChinatownCollection).
+
+   ?collection ?instanceOf ?ChinatownCollection;
+               ?containsMaterial ?material.
    BIND(REPLACE(STR(?material), "http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/", "") AS ?qid).
    SERVICE wikibase:label { bd:serviceParam wikibase:language "zh". }
 } GROUP BY ?qid ?materialLabel ORDER BY DESC(?count)
