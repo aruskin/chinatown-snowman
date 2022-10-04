@@ -14,15 +14,19 @@
         {{ end }}
     </div>
 </div>
-{{ if eq (index . 0).langCode.String "en" }}
 <div class="row">
     <div class="col">
+        {{ if eq (index . 0).langCode.String "en" }}
         <p>
             The organizations represented in the database are groups or institutions connected to the collections as maintainers, donors, or creators. The organizations listed below include institutions which maintain collections in the database as well as community organizations related to Chinatown. 
         </p>
+        {{ else }}
+        <p>
+            数据库所示的组织是作为维护者、捐赠者或创建者与馆藏相关的团体或机构。下面列出的组织包括在数据库中维护馆藏的机构以及与华埠相关的社区组织。 
+        </p>
+        {{ end }}
     </div>
 </div>
-{{ end }}
 <div class="row">
     <div class="col">
     <table class="table table-bordered table-sm display" id="organizations-table">

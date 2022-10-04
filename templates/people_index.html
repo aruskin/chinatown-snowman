@@ -14,15 +14,19 @@
         {{ end }}
     </div>
 </div>
-{{ if eq (index . 0).langCode.String "en" }}
 <div class="row">
     <div class="col">
+        {{ if eq (index . 0).langCode.String "en" }}
         <p>
             The people listed below appear in this collections database in a variety of roles. Their relationship to the collection(s) may be seen by clicking on their name. The term <strong>records creator</strong> refers to the people responsible for the aggregation or aggregate creation of the materials contained within the listed collection; in many cases, they are also the subjects of that collection. <strong>Maintainers</strong> of a collection are the individuals responsible for hosting and managing that collection. Those listed as <strong>donors</strong> are the people who donated the collection to the organization or individual who now maintains it.
         </p>
+        {{ else }}
+        <p>
+            下面列出的人员以各种角色出现在这个馆藏数据库中。术语<strong>记录创建者</strong>是指负责汇总或汇总创建所列馆藏中包含的材料的人员，在许多情况下也是该馆藏的主题。馆藏的<strong>维护者</strong>是负责托管和管理该馆藏的个人。列为<strong>捐赠者</strong>的人是那些将藏品捐赠给现在维护的组织或个人的人。
+        </p>
+        {{ end }}
     </div>
 </div>
-{{ end }}
 <div class="row">
     <div class="col">
         <table class="table table-bordered table-sm display" id="people-table">
