@@ -1,0 +1,100 @@
+{{ template "zh_base" . }}
+
+{{ define "title" }}数据模型{{ end }}
+
+{{ define "content" }}
+<div class="row">
+    <div class="col-10">
+        <h1>数据模型</h1>
+    </div>
+    <div class="col-2">
+        <a role="button" class="btn btn-outline-primary float-end" href="../en/data_model.html">en</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <h2>收集数据模型</h2>
+        <p>“馆藏”一词在这里广泛使用，其中一些是大学档案馆藏，但也包括 Wordpress 博客、艺术设施、个人藏品等。档案“馆藏”可能是与波士顿华埠相关的特定全宗、系列或文件，以及碰巧含有与波士顿华埠相关材料的全宗、系列或文件。</p>
+        <dl class="row">
+            <dt class="col-sm-3">标题</dt>
+            <dd class="col-sm-9">唯一标识馆藏的正式名称或简短描述性声明。</dd>
+            <dt class="col-sm-3">描述</dt>
+            <dd class="col-sm-9">描述馆藏的目的、组合方式、所含内容等。</dd>
+            <dt class="col-sm-3">材料类型（一般）</dt>
+            <dd class="col-sm-9">
+                描述馆藏材料一般形式的术语。允许值：国家档案馆<a href="https://www.archives.gov/research/catalog/lcdrg/authority_lists/grtlist.html" target="_blank">一般记录类型权威清单</a>条款</dd>
+            <dt class="col-sm-3">材料类型（具体）</dt>
+            <dd class="col-sm-9">
+                描述馆藏所含具体类型/形式材料的术语或短语。允许值： <a href="https://www.getty.edu/research/tools/vocabularies/aat/" target="_blank">Getty Art and Architecture Thesaurus</a>（在 Visual Works 或 Information Forms 层次结构下）</dd>
+            <dt class="col-sm-3">材料开始日期</dt>
+            <dd class="col-sm-9">馆藏中最早物品的创建年份</dd>
+            <dt class="col-sm-3">材料结束日期</dt>
+            <dd class="col-sm-9">馆藏中最新物品的创建年份</dd>
+            <dt class="col-sm-3">主题</dt>
+            <dd class="col-sm-9">描述馆藏主要专题或主题的术语或短语</dd>
+            <dt class="col-sm-3">语言</dt>
+            <dd class="col-sm-9">在馆藏材料中大量使用的任何语言（即不仅仅是几个单词或短语）</dd>
+            <dt class="col-sm-3">官方网站</dt>
+            <dd class="col-sm-9">馆藏或馆藏官方主页中任何数字化材料网站</dd>
+            <dt class="col-sm-3">详情描述网址</dt>
+            <dd class="col-sm-9">描述馆藏的网站；对于档案馆藏应是查找帮助的 URL；其他类型则可能是官方网站的“关于”页面</dd>
+            <dt class="col-sm-3">馆藏类型</dt>
+            <dd class="col-sm-9">标识馆藏类型的术语。允许值：档案馆藏、网站、个人馆藏</dd>
+            <dt class="col-sm-3">记录创建者</dt>
+            <dd class="col-sm-9">负责对馆藏中材料进行聚合或聚合创建的个人或组织。</dd>
+            <dt class="col-sm-3">捐赠者</dt>
+            <dd class="col-sm-9">负责将材料捐赠给维护者的个人或组织。</dd>
+            <dt class="col-sm-3">维护者</dt>
+            <dd class="col-sm-9">负责托管和管理馆藏的人或组织。</dd>
+            <dt class="col-sm-3">访问限制状态</dt>
+            <dd class="col-sm-9">指示材料是否有访问限制。允许值： 国家档案馆<a href="https://www.archives.gov/research/catalog/lcdrg/authority_lists/accesslist.html" target="_blank">访问限制状态权限清单</a>的术语</dd>
+            <dt class="col-sm-3">数字化状态</dt>
+            <dd class="col-sm-9">指示馆藏中的材料是否以数字形式存在。允许值： 天生数字化、完全数字化、部分数字化、未数字化</dd>
+            <dt class="col-sm-3">访问政策说明</dt>
+            <dd class="col-sm-9">访问限制和数字化状态未涉的任何其他信息，有助于用户了解如何访问馆藏材料。</dd>
+            <dt class="col-sm-3">项目状态</dt>
+            <dd class="col-sm-9">现有项目状态描述：项目是否已完成，是否处于间断状态，材料是否仍在积极添加/处理/数字化？</dd>
+            <dt class="col-sm-3">项目开始年份</dt>
+            <dd class="col-sm-9">馆藏开始积累材料的年份</dd>
+            <dt class="col-sm-3">项目结束年份</dt>
+            <dd class="col-sm-9">馆藏停止应计材料的年份（仍有预期应计材料时不包括在内）</dd>
+        </dl>
+        <h2>组织数据模型</h2>
+        <p>数据库所示的组织是作为维护者、捐赠者或创建者与馆藏相关的团体或机构。</p>
+        <dl class="row">
+            <dt class="col-sm-3">正式名称</dt>
+            <dd class="col-sm-9">该组织的正式名称</dd>
+            <dt class="col-sm-3">组织类型</dt>
+            <dd class="col-sm-9">标识组织类型的术语。允许值： 学术档案、市政档案、社区组织、历史学会。</dd>
+            <dt class="col-sm-3">成立</dt>
+            <dd class="col-sm-9">组织成立年份</dd>
+            <dt class="col-sm-3">官方网站</dt>
+            <dd class="col-sm-9">组织的官方网站</dd>
+            <dt class="col-sm-3">街道地址</dt>
+            <dd class="col-sm-9">该组织总部的完整街道地址</dd>
+            <dt class="col-sm-3">电话号码</dt>
+            <dd class="col-sm-9">该组织的官方联系电话</dd>
+            <dt class="col-sm-3">电子邮件地址</dt>
+            <dd class="col-sm-9">该组织的官方联系电子邮件</dd>
+        </dl>
+        <h2>个人数据模型</h2>
+        <p>数据库所示人员是作为维护者、捐赠者或创建者与馆藏相关的个人。为了保护在世人士的隐私，只收集了极少非公众人物相关信息。</p>
+        <dl class="row">
+            <dt class="col-sm-3">姓名</dt>
+            <dd class="col-sm-9">该人的全名</dd>
+            <dt class="col-sm-3">记录创建者（为）</dt>
+            <dd class="col-sm-9">包含该人创建的记录的馆藏</dd>
+            <dt class="col-sm-3">维护者（为）</dt>
+            <dd class="col-sm-9">馆藏托管/管理负责人</dd>
+            <dt class="col-sm-3">捐赠者（为）</dt>
+            <dd class="col-sm-9">包含该人所捐赠记录的馆藏</dd>
+            <dt class="col-sm-3">创始人（的）</dt>
+            <dd class="col-sm-9">该人创办的组织</dd>
+            <dt class="col-sm-3">官方网站</dt>
+            <dd class="col-sm-9">该人的官方网站</dd>
+            <dt class="col-sm-3">电子邮件地址</dt>
+            <dd class="col-sm-9">该人的官方联系电子邮件</dd>
+        </dl>    
+    </div>
+</div>
+{{ end }}
