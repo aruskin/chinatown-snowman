@@ -9,7 +9,6 @@ WHERE {
    BIND(wdt:P28 AS ?created).
    BIND(wdt:P11 AS ?maintains).
    BIND(wdt:P10 AS ?founded).
-   BIND(wdt:P76 AS ?named).
    BIND(wdt:P22 AS ?hasWebsite).
    BIND(wdt:P16 AS ?hasEmail).
    BIND(wd:Q21 AS ?human).
@@ -33,7 +32,7 @@ WHERE {
    ?creatorProp wikibase:directClaim ?created.
    ?maintainerProp wikibase:directClaim ?maintains.
    ?founderProp wikibase:directClaim ?founded.
-   ?nameProp wikibase:directClaim ?named.
+   ?nameProp wikibase:directClaim ?hasName.
    ?officialWebsiteProp wikibase:directClaim ?hasWebsite.
    ?emailAddressProp wikibase:directClaim ?hasEmail.
 
