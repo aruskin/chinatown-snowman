@@ -2,7 +2,7 @@ SELECT ?qid ?subjectLabel (COUNT(?collection) AS ?count)
 WHERE {
    # variables used in query
    BIND(wdt:P7 AS ?instanceOf).
-   BIND(wdt:P23 AS ?hasSubject)
+   BIND(wdt:P23 AS ?hasSubject).
    BIND(wd:Q85 AS ?ChinatownCollection).
    BIND("http://ec2-34-227-69-60.compute-1.amazonaws.com/entity/" AS ?baseURI)
 

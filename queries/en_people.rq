@@ -5,10 +5,10 @@ WHERE {
    # variables used in query
    BIND(wdt:P7 AS ?instanceOf).
    BIND(wdt:P76 AS ?hasName).
-   BIND(wdt:P24 AS ?donated).
-   BIND(wdt:P28 AS ?created).
-   BIND(wdt:P11 AS ?maintains).
-   BIND(wdt:P10 AS ?founded).
+   BIND(wdt:P24 AS ?hasDonor).
+   BIND(wdt:P28 AS ?hasCreator).
+   BIND(wdt:P11 AS ?hasMaintainer).
+   BIND(wdt:P10 AS ?hasFounder).
    BIND(wdt:P22 AS ?hasWebsite).
    BIND(wdt:P16 AS ?hasEmail).
    BIND(wd:Q21 AS ?human).
@@ -28,10 +28,10 @@ WHERE {
         FILTER(LANG(?personDescription) = ?langCode).
    }
 
-   ?donorProp wikibase:directClaim ?donated.
-   ?creatorProp wikibase:directClaim ?created.
-   ?maintainerProp wikibase:directClaim ?maintains.
-   ?founderProp wikibase:directClaim ?founded.
+   ?donorProp wikibase:directClaim ?hasDonor.
+   ?creatorProp wikibase:directClaim ?hasCreator.
+   ?maintainerProp wikibase:directClaim ?hasMaintainer.
+   ?founderProp wikibase:directClaim ?hasFounder.
    ?nameProp wikibase:directClaim ?hasName.
    ?officialWebsiteProp wikibase:directClaim ?hasWebsite.
    ?emailAddressProp wikibase:directClaim ?hasEmail.
