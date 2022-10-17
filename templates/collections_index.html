@@ -1,10 +1,10 @@
 {{if eq (index . 0).langCode.String "en" }}{{ template "en_base" . }}{{ else }}{{ template "zh_base" . }}{{ end }}
-{{ define "title" }}{{ (index . 0).title}}{{ end }}
+{{ define "title" }}{{if eq (index . 0).langCode.String "en" }}Collections{{ else }}馆藏{{ end }}{{ end }}
 
 {{ define "content" }}
 <div class="row">
     <div class="col-10">
-        <h1>{{ (index . 0).title}}</h1>
+        <h1>{{if eq (index . 0).langCode.String "en" }}Collections{{ else }}馆藏{{ end }}</h1>
     </div>
     <div class="col-2">
         {{ if eq (index . 0).langCode.String "en" }}
