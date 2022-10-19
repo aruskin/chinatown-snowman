@@ -1,6 +1,6 @@
 views:
   - output: "index.html"
-    template: "index.html"
+    template: "en/index.html"
   - output: "en/index.html"
     template: "en/index.html"
   - output: "zh/index.html"
