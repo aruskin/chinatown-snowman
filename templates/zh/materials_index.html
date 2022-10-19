@@ -21,7 +21,7 @@
     <div class="col">
         {{ range . }}
         <h2>{{ .materialLabel }}</h2>
-        {{ include "includes_details.html" (query "zh_collections-by-material.rq" .qid.String) }}
+        {{ include "includes_details.html" (query "zh/collections-by-material.rq" .qid.String) }}
         {{ end }}
     </div>
 </div>  
