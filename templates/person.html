@@ -43,7 +43,7 @@
 </dl>
 <div class="row">
     <div class="col-6 mx-auto">
-        <a role="button" class="btn btn-primary" href='./people.html'>{{ .title }}</a>
+        <a role="button" class="btn btn-primary" href='./people.html'>{{if eq .langCode.String "en" }}People{{ else }}人员{{ end }}</a>
     </div>
 </div>
 {{ end }}
